@@ -3,7 +3,8 @@ import { useNavigation } from '@react-navigation/native';
 import React,{useState} from 'react';
 import { Modal, View, Text, Button, TouchableOpacity,Image,TextInput } from 'react-native';
 
-import DeliveryPopup2 from './DevliveryPopup2';
+
+import Cardpopup from './Cardpopup';
 
 const DeliveryPopup = ({ visible, onClose }) => {
   const [isPopupVisible, setPopupVisible] = useState(false);
@@ -78,7 +79,7 @@ const DeliveryPopup = ({ visible, onClose }) => {
      >
          Pay Online
      </Text>
-     <DeliveryPopup2 visible={isPopupVisible} onClose={togglePopup}/>
+     <Cardpopup visible={isPopupVisible} onClose={togglePopup}/>
      </TouchableOpacity>
      <TouchableOpacity  style={{
         left:70,

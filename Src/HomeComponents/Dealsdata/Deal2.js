@@ -7,18 +7,22 @@ import { useNavigation } from '@react-navigation/native';
 
 
 const Deal2 = () => {
+  const pima=require('../../../assets/1.png')
     const [iconColor, setIconColor] = useState('#FFA451');
     const [bgColor, setBgColor] = useState('transparent');
   const navigation=useNavigation();
+  const price=10000;
+  const name=' Honey fruit combo';
     const handlePress = () => {
       setIconColor(iconColor === '#FFA451' ? '#fff' : '#FFA451'); // Toggle between black and red
       setBgColor(bgColor === 'transparent' ? '#FFA451' : 'transparent'); // Toggle between white and grey
     };
     const [isPressed, setIsPressed] = useState(false);
+   
   return (
     <View>
        <TouchableOpacity
-      onPress={()=>navigation.navigate('Details')}
+       onPress={()=>navigation.navigate('Details',{text:name,  image:pima, text1:price})}
      style={{
         backgroundColor:'rgba(254, 240, 240, 1)',
         width:wp('45%'),
@@ -55,13 +59,13 @@ const Deal2 = () => {
         <Image 
         style=
         {{
-            width:wp('24%'),
+            width:wp('25%'),
             height:hp('12%'),
-            borderRadius:30
+            borderRadius:80
         }} 
         source=
         {
-            require('../../../assets/p.png')
+            require('../../../assets/1.png')
         }
         />
 
@@ -90,7 +94,7 @@ const Deal2 = () => {
             left:hp('-2.8%'),
             top:hp('-0.3%')
         }}>
-        10000
+        {price}
         </Text>
         <Image 
          style={{

@@ -9,6 +9,8 @@ const Deal1 = () => {
   const pima=require('../../../assets/p.png')
     const [iconColor, setIconColor] = useState('#FFA451');
     const [bgColor, setBgColor] = useState('transparent');
+    const name=' Honey lime combo';
+    const price=10000;
   const navigation=useNavigation();
     const handlePress = () => {
       setIconColor(iconColor === '#FFA451' ? '#fff' : '#FFA451'); // Toggle between black and red
@@ -18,7 +20,7 @@ const Deal1 = () => {
   return (
     <View>
        <TouchableOpacity
-     onPress={()=>navigation.navigate('Details',{image:pima})}
+     onPress={()=>navigation.navigate('Details',{text:name,  image:pima, text1:price})}
      style={{
         backgroundColor:'rgba(255, 250, 235, 1)',
         width:wp('45%'),
@@ -55,9 +57,9 @@ const Deal1 = () => {
             
         style=
         {{
-            width:wp('24%'),
+            width:wp('25%'),
             height:hp('12%'),
-            borderRadius:30
+            borderRadius:80
         }} 
         
         source=
@@ -72,7 +74,7 @@ const Deal1 = () => {
             fontSize:17
         }}
         >
-        Honey lime combo
+        {name}
         </Text>
         <Image
         
@@ -91,7 +93,7 @@ const Deal1 = () => {
             left:hp('-2.8%'),
             top:hp('-0.3%')
         }}>
-        10000
+        {price}
         </Text>
         <Image 
          style={{

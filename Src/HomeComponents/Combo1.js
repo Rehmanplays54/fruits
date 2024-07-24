@@ -3,7 +3,11 @@ import React, { useState } from 'react'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import Icon from 'react-native-vector-icons/EvilIcons';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import Basket from '../Basket';
 const Combo1 = () => {
+    const name=  'Honey combo lambo';
+    const price= 8000;
+    const pima=require('../../assets/p.png');
     const navigation=useNavigation();
     const [iconColor, setIconColor] = useState('#FFA451');
     const [bgColor, setBgColor] = useState('transparent');
@@ -26,7 +30,7 @@ const Combo1 = () => {
     }}
     >
      <TouchableOpacity
-     onPress={()=>navigation.navigate('Details')}
+     onPress={()=>navigation.navigate('Details',{text:name,  image:pima, text1:price})}
      style={{
         backgroundColor:'#F2F4F6',
         width:wp('45%'),
@@ -39,6 +43,7 @@ const Combo1 = () => {
      }}>
 
          <TouchableOpacity
+         
         style={{backgroundColor:bgColor,
         borderRadius:30,
         left:hp('7%'),
@@ -48,8 +53,9 @@ const Combo1 = () => {
  }}
         onPress={handlePress}
  >
-                                  
+                            
      <Icon 
+     
      name='heart' 
      size={30} 
      color={iconColor} 
@@ -66,7 +72,7 @@ const Combo1 = () => {
         }} 
         source=
         {
-            require('../../assets/p.png')
+           pima
         }
         />
 
@@ -76,7 +82,7 @@ const Combo1 = () => {
             fontSize:17
         }}
         >
-        Honey lime combo
+        {name}
         </Text>
         <Image
          style=
@@ -93,7 +99,7 @@ const Combo1 = () => {
             left:hp('-2.8%'),
             top:hp('-0.3%')
         }}>
-        2000
+        {price}
         </Text>
         <Image 
          style={{
@@ -109,7 +115,7 @@ const Combo1 = () => {
 
 
      <TouchableOpacity
-      onPress={()=>navigation.navigate('Details')}
+       onPress={()=>navigation.navigate('Details',{text:name,  image:pima, text1:price})}
      style={{
         backgroundColor:'#F2F4F6',
         width:wp('45%'),
@@ -150,7 +156,7 @@ const Combo1 = () => {
         }} 
         source=
         {
-            require('../../assets/1.png')
+            pima
         }
         />
 
@@ -160,7 +166,7 @@ const Combo1 = () => {
             fontSize:17
         }}
         >
-        Berry mango combo
+       {name}
         </Text>
         <Image
          style=
@@ -177,7 +183,7 @@ const Combo1 = () => {
             left:hp('-2.8%'),
             top:hp('-0.3%')
         }}>
-        8000
+       {price}
         </Text>
         <Image 
          style={{

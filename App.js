@@ -23,6 +23,7 @@ import Login from './Src/Login';
 import Home from './Src/Home';
 import Details from './Src/Details';
 import Navbar from './Src/AddtoBasket/Navbar';
+import Basket from './Src/Basket';
 
 
 function App() {
@@ -37,6 +38,7 @@ return(
     <Stack.Screen name='Login' component={Login} />
     <Stack.Screen name='Home' component={Home} />
     <Stack.Screen name='Details' component={Details} />
+    <Stack.Screen name='Basket' component={Basket} />
 
     </Stack.Navigator>
 

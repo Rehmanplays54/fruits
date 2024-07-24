@@ -50,12 +50,13 @@ const styles = StyleSheet.create({
         width:wp('70%'),
         height:hp('30%'),
         top: 155,
-        left: hp('8%'),
+        left: hp('7%'),
         position: 'absolute'
     },
     bask_3: {
-        top: hp('55%'),
-        left: wp('11%')
+        top: hp('52%'),
+        width:wp('75'),
+        left: wp('15%')
     },
     Tbask_1:
     {

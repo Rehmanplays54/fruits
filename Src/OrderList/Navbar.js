@@ -7,7 +7,7 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 import { COLORS } from '../Components/COLORS';
 
 
-const Navbar = ({image}) => {
+const Navbar = () => {
 
  const navigation=useNavigation();
 
@@ -17,7 +17,7 @@ const Navbar = ({image}) => {
      style={{ 
         backgroundColor: '#FFA451',
          width: hp('100%'),
-          height:hp('40%')
+          height:hp('20%')
           }}>
 <TouchableOpacity  onPress={()=>navigation.navigate('Home')}
 style={{ 
@@ -56,14 +56,7 @@ style={{
         >My Basket</Text>
         
          
-        <Image source={image}
-      style={{
-        width:wp('40'),height:hp('19'),
-        borderRadius:100,
-        top:hp('5'),
-        left:hp('15%')
-      }}
-      />
+      
         
         </View>
     )

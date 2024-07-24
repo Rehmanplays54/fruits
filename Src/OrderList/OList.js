@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const Cardpopup = () => {
+const OList = () => {
   return (
     <View>
-      <Text>Cardpopup</Text>
+      <Text>OList</Text>
     </View>
   )
 }
 
-export default Cardpopup
+export default OList
