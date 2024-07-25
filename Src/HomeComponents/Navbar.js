@@ -3,6 +3,7 @@ import React from 'react'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 const Navbar = () => {
+
   const navigation = useNavigation();
   return (
     <View

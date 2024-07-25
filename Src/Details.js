@@ -13,7 +13,7 @@ import BottomSection from './AddtoBasket/BottomSection';
 const Details = ({route}) => {
     const { text, image, text1} = route.params??null;
     
-
+ console.log(text1);
   return (
     <View>
    
@@ -37,12 +37,12 @@ const Details = ({route}) => {
       }}>
       {text}
       </Text>
-      <Pricecount text={text1}/>
+      <Pricecount text1={text1}/>
       <Line/>
       <Text1/>
       < Line2/>
       <Text2/>
-      <BottomSection/>
+      <BottomSection text1={text1}/>
       </View>
    
     </View>

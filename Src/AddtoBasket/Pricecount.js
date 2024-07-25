@@ -1,25 +1,37 @@
 import { View, Text, Image, Alert, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import Text1 from './Text1';
 
-const Pricecount = ({text}) => {
-    const [number,setnumber]=useState(0);
-    const [text1,settext1]=useState(0);
-    const ptext=0;
-        
+const Pricecount = ({text1}) => {
+  
+
+    const [number,setnumber]=useState(1);
+    const [price,setprice]=useState(text1);
+  
+    const ptext=number;
     const CountAdd =()=>{
-        setnumber(number+1);
-        settext1(text1+text)
-    
+      const newNumber = number + 1;
+      setnumber(newNumber);
+      setprice(newNumber * text1);
+     
     }
     const CountMinus =()=>{
       
-        if(number>=1){
-        setnumber(number-1);
-        }
+      const newNumber = number - 1;
+      if(number<=1){
+        Alert.alert('Minimum order should be 1 ')
+          const num=0;
+          setnumber(num);
+          
+      }
+      else{
+        setnumber(newNumber)
+      }
+      
+      setprice(newNumber * text1);
 
     
-        settext1(text1-text);
       
     }
    
@@ -73,7 +85,7 @@ const Pricecount = ({text}) => {
         left:hp('36%'),
         bottom:hp('7.4%')
        }}
-       >{text1}</Text>
+       >{price}</Text>
     </View>
   )
 }

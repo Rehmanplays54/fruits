@@ -14,22 +14,22 @@ import Deals from './HomeComponents/Deals';
 
 const Home = () => {
 
-    
+
 
     return (
-        <View 
-        style={{
-            
-            backgroundColor:'#fff'
+        <View
+            style={{
+
+                backgroundColor: '#fff'
             }}
-            >
-         <Navbar/>
-         <Text1/>
-         <Searchbar/>
-         <Text2/>
-         <Combo1/>
-         <NewNavigation/>
-         <Deals/>
+        >
+            <Navbar/>
+            <Text1 />
+            <Searchbar />
+            <Text2 />
+            <Combo1 />
+            <NewNavigation />
+            <Deals />
         </View>
     )
 }
@@ -38,7 +38,7 @@ export default Home
 
 
 // const styles = StyleSheet.create({
-  
+
 //     bars: {
 //         width: 22,
 //         height: 11,
@@ -81,20 +81,20 @@ export default Home
 //         alignItems: 'center',
 //     },
 //     catagoriresListContainer: {
-       
+
 //         top:70, 
 //         paddingHorizontal: 10,
 //         backgroundColor:'rgba(32, 32, 32, 0.05)',
 //         borderRadius:10,
 //         left:10
-        
+
 //     },
 //     categorybtnicon: {
 //         width: 65,
 //         height: 65,
 //         borderRadius: 35,
 //         borderRadius:3,
-        
+
 //         top: 30
 //     },
 //     // none
@@ -146,7 +146,7 @@ export default Home
 //         backgroundColor: '#ffffff',
 //         top: 30
 //     },
-    
+
 // })
 
 // const navigation = useNavigation();
@@ -154,7 +154,7 @@ export default Home
 //     const [activeTab, setActiveTab] = useState('Hottest');
 //     const icon = <Icon name='heart' size={30} color={isClicked ? 'white' : '#FFA451'} />
 //     const [isClicked, setIsClicked] = useState(false);
-    
+
 //     const handlePress = () => {
 //         setIsClicked(!isClicked);
 //     };

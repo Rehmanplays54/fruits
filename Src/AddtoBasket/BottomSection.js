@@ -1,18 +1,25 @@
-import { View, Text,TouchableOpacity } from 'react-native'
+import { View, Text,TouchableOpacity, Alert } from 'react-native'
 import React, { useState } from 'react'
 
 import Icon from 'react-native-vector-icons/EvilIcons';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import { useNavigation } from '@react-navigation/native';
-const BottomSection = () => {
+const BottomSection = ({text1}) => {
     const [iconColor, setIconColor] = useState('#FFA451');
     const [bgColor, setBgColor] = useState('#FFF7F0');
    const navigation=useNavigation();
     const handlePress = () => {
-      setIconColor(iconColor === '#FFA451' ? '#fff' : '#FFA451'); // Toggle between black and red
-      setBgColor(bgColor === '#FFF7F0' ? '#FFA451' : '#FFF7F0'); // Toggle between white and grey
+      setIconColor(iconColor === '#FFA451' ? '#fff' : '#FFA451'); 
+      setBgColor(bgColor === '#FFF7F0' ? '#FFA451' : '#FFF7F0'); 
     };
     
+    const handleAddToFavourite = () => {
+      if (text1 <= 0) {
+        Alert.alert('Minimum price should be greater than 0');
+      } else {
+        navigation.navigate('Home');
+      }
+    };
   return (
     <View>
        <TouchableOpacity
@@ -37,6 +44,7 @@ const BottomSection = () => {
      
      />
     </TouchableOpacity>
+    <TouchableOpacity >
     <Text
                 style={{ 
                     width: wp('60%'),
@@ -49,10 +57,14 @@ const BottomSection = () => {
                     textAlignVertical: 'center',
                     borderRadius: 10
                 }}
-                onPress={()=>navigation.navigate('Home')}
+                onPress={handleAddToFavourite}
+                
+                
             >
+            
                 Add to favourate
             </Text>
+            </TouchableOpacity>
     </View>
   )
 }

@@ -1,7 +1,7 @@
 // MainScreen.js
 import React, { useState } from 'react';
 import { View, Button, TouchableOpacity, ScrollView, Text, Image, StyleSheet, FlatList } from 'react-native';
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import CustomPopup from './DeliveryPopup';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/EvilIcons';
@@ -10,7 +10,7 @@ import Navbar from './OrderList/Navbar';
 
 
 const Basket = () => {
- 
+
     const [isPopupVisible, setPopupVisible] = useState(false);
 
     const togglePopup = () => {
@@ -19,8 +19,8 @@ const Basket = () => {
     const navigation = useNavigation();
     return (
         <View >
-          <Navbar/>
-          
+            <Navbar />
+
             <View
                 style={{
                     top: 250,
@@ -38,7 +38,8 @@ const Basket = () => {
                     style={{
                         width: 15,
                         height: 15,
-                        top: 7, left: 7,
+                        top: 7,
+                        left: 7,
                     }}
                 />
                 <Text
