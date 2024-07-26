@@ -13,7 +13,6 @@ import BottomSection from './AddtoBasket/BottomSection';
 const Details = ({route}) => {
     const { text, image, text1} = route.params??null;
     
- console.log(text1);
   return (
     <View>
    

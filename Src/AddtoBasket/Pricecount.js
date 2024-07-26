@@ -2,6 +2,7 @@ import { View, Text, Image, Alert, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import Text1 from './Text1';
+import BottomSection from './BottomSection';
 
 const Pricecount = ({text1}) => {
   
@@ -85,7 +86,10 @@ const Pricecount = ({text1}) => {
         left:hp('36%'),
         bottom:hp('7.4%')
        }}
-       >{price}</Text>
+       >
+      
+        {price}</Text>
+       <BottomSection number={number} price={price}/>
     </View>
   )
 }

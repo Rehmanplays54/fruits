@@ -3,7 +3,9 @@ import React from 'react'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 const Text1 = () => {
   return (
-    <View>
+    <View style={{
+      top:-90
+    }}>
       <Text
       style={{
         left:hp('3%'),

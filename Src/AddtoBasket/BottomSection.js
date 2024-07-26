@@ -4,7 +4,8 @@ import React, { useState } from 'react'
 import Icon from 'react-native-vector-icons/EvilIcons';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import { useNavigation } from '@react-navigation/native';
-const BottomSection = ({text1}) => {
+const BottomSection = () => {
+  
     const [iconColor, setIconColor] = useState('#FFA451');
     const [bgColor, setBgColor] = useState('#FFF7F0');
    const navigation=useNavigation();
@@ -13,8 +14,9 @@ const BottomSection = ({text1}) => {
       setBgColor(bgColor === '#FFF7F0' ? '#FFA451' : '#FFF7F0'); 
     };
     
+     console.log(number);
     const handleAddToFavourite = () => {
-      if (text1 <= 0) {
+      if (number <= 1) {
         Alert.alert('Minimum price should be greater than 0');
       } else {
         navigation.navigate('Home');

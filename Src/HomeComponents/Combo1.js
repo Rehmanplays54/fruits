@@ -5,11 +5,11 @@ import Icon from 'react-native-vector-icons/EvilIcons';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import Basket from '../Basket';
 const Combo1 = () => {
-    const obj = {
-        name:'',
-        price:'',
-        image:require('../../assets/p.png')
-    }
+    // const obj = {
+    //     name:'',
+    //     price:'',
+    //     image:require('../../assets/p.png')
+    // }
     const name = 'Honey combo lambo';
     const price = 8000;
     const pricee = 2000;
@@ -21,7 +21,7 @@ const Combo1 = () => {
     const [icColor, setIcColor] = useState('#FFA451');
     const [data, setData]= useState()
     const [bgColr, setBgColr] = useState('transparent');
-    console.log(data);
+
     const handlePress = () => {
        
         setIconColor(iconColor === '#FFA451' ? '#fff' : '#FFA451'); // Toggle between black and red
