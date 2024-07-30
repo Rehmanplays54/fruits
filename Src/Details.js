@@ -37,11 +37,13 @@ const Details = ({route}) => {
       {text}
       </Text>
       <Pricecount text1={text1}/>
+      <View style={{top:-95}}>
       <Line/>
       <Text1/>
       < Line2/>
       <Text2/>
-      <BottomSection text1={text1}/>
+      </View>
+      <BottomSection text1={text1} image={image} text={text}/>
       </View>
    
     </View>

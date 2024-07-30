@@ -3,18 +3,20 @@ import React, { useState } from 'react'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import Text1 from './Text1';
 import BottomSection from './BottomSection';
+import OList from '../OrderList/OList';
 
 const Pricecount = ({text1}) => {
   
 
     const [number,setnumber]=useState(1);
     const [price,setprice]=useState(text1);
-  
-    const ptext=number;
+  const pri=text1;
+
     const CountAdd =()=>{
       const newNumber = number + 1;
       setnumber(newNumber);
       setprice(newNumber * text1);
+      
      
     }
     const CountMinus =()=>{
@@ -22,17 +24,21 @@ const Pricecount = ({text1}) => {
       const newNumber = number - 1;
       if(number<=1){
         Alert.alert('Minimum order should be 1 ')
-          const num=0;
+          const num=1;
           setnumber(num);
+       setprice(pri);
           
       }
       else{
         setnumber(newNumber)
+        setprice(newNumber * text1);
+     
+    
       }
       
-      setprice(newNumber * text1);
+   
 
-    
+  
       
     }
    
@@ -86,10 +92,13 @@ const Pricecount = ({text1}) => {
         left:hp('36%'),
         bottom:hp('7.4%')
        }}
+
        >
       
         {price}</Text>
-       <BottomSection number={number} price={price}/>
+
+        <BottomSection number={number} price={price}/>
+       
     </View>
   )
 }

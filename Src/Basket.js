@@ -1,37 +1,39 @@
 // MainScreen.js
-import React, { useState } from 'react';
-import { View, Button, TouchableOpacity, ScrollView, Text, Image, StyleSheet, FlatList } from 'react-native';
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import React, { useState, useEffect } from 'react';
+import { View, TouchableOpacity, Text, Image, StyleSheet } from 'react-native';
+import { useRoute, useNavigation } from '@react-navigation/native';
 import CustomPopup from './DeliveryPopup';
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/EvilIcons';
-import Catagories, { Catagories1 } from '../Components/Catagories';
 import Navbar from './OrderList/Navbar';
-
+import OList from './OrderList/OList';
 
 const Basket = () => {
-
+     const route =useRoute();
+     const {t1,i1,t2}=route.params;
+console.log(t1,i1,t2);
     const [isPopupVisible, setPopupVisible] = useState(false);
 
     const togglePopup = () => {
         setPopupVisible(!isPopupVisible);
     };
-    const navigation = useNavigation();
-    return (
-        <View >
-            <Navbar />
 
+    const navigation = useNavigation();
+
+    return (
+        <View>
+            <Navbar />
+       <OList/>
             <View
                 style={{
                     top: 250,
                     left: 20
-                }}>
+                }}
+            >
                 <Text
                     style={{
                         fontSize: 19
                     }}
-                > Total
-
+                >
+                    Total
                 </Text>
                 <Image
                     source={require('../assets/curreny.png')}
@@ -44,12 +46,14 @@ const Basket = () => {
                 />
                 <Text
                     style={{
-                        fontSize: 26, left: 22, top: -20
+                        fontSize: 26,
+                        left: 22,
+                        top: -20
                     }}
-                > 23000
-
+                >
+                    23000
                 </Text>
-                <TouchableOpacity style={{ left: 120, top: -60 }} onPress={togglePopup} >
+                <TouchableOpacity style={{ left: 120, top: -60 }} onPress={togglePopup}>
                     <CustomPopup visible={isPopupVisible} onClose={togglePopup} />
                     <Text
                         style={{
@@ -61,14 +65,17 @@ const Basket = () => {
                             height: 49,
                             left: 60,
                             fontSize: 24,
-                            textAlign: 'center', paddingTop: 9, color: '#fff'
+                            textAlign: 'center',
+                            paddingTop: 9,
+                            color: '#fff'
                         }}
                     >
                         Checkout
                     </Text>
-
                 </TouchableOpacity>
             </View>
+
+            
         </View>
     );
 };
@@ -80,6 +87,4 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 900
     }
-})
-
-
+});

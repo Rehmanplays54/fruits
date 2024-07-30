@@ -39,7 +39,7 @@ const [bgColor, setBgColor] = useState('transparent');
              width:wp('25%'),
             height:hp('12%'),
             borderRadius:80,
-            left:hp('1')
+            left:hp('2')
           }}
              source={item.image} 
              
@@ -52,7 +52,7 @@ const [bgColor, setBgColor] = useState('transparent');
             >{item.name}</Text>
             <Image 
             style={{  
-              left:hp('-23.5%'),
+              left:hp('-22%'),
               top:hp('2%')
             }}
             source={item.c_btn}/>
@@ -68,7 +68,7 @@ const [bgColor, setBgColor] = useState('transparent');
             <Image 
               style={{
            
-                left:hp('11.8%'),
+                left:hp('12.8%'),
                 top:hp('-3%')
             }}
             source={item.add}/>
