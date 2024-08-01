@@ -24,6 +24,8 @@ import Home from './Src/Home';
 import Details from './Src/Details';
 import Navbar from './Src/AddtoBasket/Navbar';
 import Basket from './Src/Basket';
+import PayDone from './Src/PayDone';
+import TrackOrder from './Src/TrackOrder';
 
 
 function App() {
@@ -39,6 +41,8 @@ return(
     <Stack.Screen name='Home' component={Home} />
     <Stack.Screen name='Details' component={Details} />
     <Stack.Screen name='Basket' component={Basket} />
+    <Stack.Screen name='PayDone' component={PayDone} />
+    <Stack.Screen name='TrackOrder' component={TrackOrder} />
 
     </Stack.Navigator>
 

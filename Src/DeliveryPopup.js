@@ -3,8 +3,8 @@ import { useNavigation } from '@react-navigation/native';
 import React,{useState} from 'react';
 import { Modal, View, Text, Button, TouchableOpacity,Image,TextInput } from 'react-native';
 
-
 import Cardpopup from './Cardpopup';
+
 
 const DeliveryPopup = ({ visible, onClose }) => {
   const [isPopupVisible, setPopupVisible] = useState(false);
@@ -19,18 +19,18 @@ const DeliveryPopup = ({ visible, onClose }) => {
       transparent={true}
       visible={visible}
       onRequestClose={() => {
-        onClose(); // Implement close logic
+        onClose(); 
       }}
     >
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center',backgroundColor:'rgba(0,0,0,0.5)' }}>
+      <View style={{  paddingTop:310 ,height:500,backgroundColor:'rgba(0,0,0,0.5)' }}>
       <TouchableOpacity onPress={onClose}>
-      <Image source={require('../assets/Cancel.png')} style={{bottom:20}} />  
+      <Image source={require('../assets/Cancel.png')} style={{bottom:20,left:160}} />  
       </TouchableOpacity>
-      <View style={{ width:327,height:406, backgroundColor: 'white', padding: 20, borderRadius: 10, alignItems: 'center' }}>
+      <View style={{ width:367,height:406,top:30 ,backgroundColor: 'white', padding: 20, borderRadius: 10, alignItems: 'center' }}>
           <Text
           style={{
-            right:80,
-            bottom:5,
+            right:90,
+            bottom:7,
             fontSize:20
           }}>
           Delivery address
@@ -39,14 +39,16 @@ const DeliveryPopup = ({ visible, onClose }) => {
           style={{
             backgroundColor:'#F3F1F1',
             width :297,
-             height:56,
+             height:50,
+             paddingLeft:10,
+             
              borderRadius:12
             }} 
             placeholder='Address' 
             />
           <Text
           style={{
-            right:80,
+            right:90,
             top:10,
             fontSize:20
           }}>Number we call</Text>
@@ -54,8 +56,9 @@ const DeliveryPopup = ({ visible, onClose }) => {
           style={{
             backgroundColor:'#F3F1F1',
             width :297,
-             height:56,
+             height:50,
              borderRadius:12,
+             paddingLeft:10,
              top:20
             }} 
           placeholder='call number' />

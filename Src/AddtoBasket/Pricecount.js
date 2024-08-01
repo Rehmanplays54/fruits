@@ -4,8 +4,9 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 import Text1 from './Text1';
 import BottomSection from './BottomSection';
 import OList from '../OrderList/OList';
+import Navbar from '../HomeComponents/Navbar';
 
-const Pricecount = ({text1}) => {
+const Pricecount = ({text1,text,image}) => {
   
 
     const [number,setnumber]=useState(1);
@@ -97,8 +98,11 @@ const Pricecount = ({text1}) => {
       
         {price}</Text>
 
-        <BottomSection number={number} price={price}/>
+        <BottomSection text={text} image={image} number={number} price={price}/>
+     <View style={{top:500}}> 
+       <Navbar text={text} image={image} number={number} price={price} />
        
+       </View>
     </View>
   )
 }

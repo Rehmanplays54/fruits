@@ -11,12 +11,12 @@ import Text2 from './AddtoBasket/Text2';
 import BottomSection from './AddtoBasket/BottomSection';
 
 const Details = ({route}) => {
-    const { text, image, text1} = route.params??null;
-    
+    const { text, image,text1} = route.params??null;
+  
   return (
     <View>
    
-      <Navbar image= {image }/>
+      <Navbar image= {image}/>
      
      <View 
      style={{
@@ -36,14 +36,14 @@ const Details = ({route}) => {
       }}>
       {text}
       </Text>
-      <Pricecount text1={text1}/>
+      <Pricecount text1={text1} text={text} image={image}/>
       <View style={{top:-95}}>
       <Line/>
       <Text1/>
       < Line2/>
       <Text2/>
       </View>
-      <BottomSection text1={text1} image={image} text={text}/>
+      <BottomSection />
       </View>
    
     </View>

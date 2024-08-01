@@ -1,15 +1,16 @@
 // MainScreen.js
 import React, { useState, useEffect } from 'react';
-import { View, TouchableOpacity, Text, Image, StyleSheet } from 'react-native';
+import { View, TouchableOpacity, Text, Image, StyleSheet, ScrollView } from 'react-native';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import CustomPopup from './DeliveryPopup';
 import Navbar from './OrderList/Navbar';
 import OList from './OrderList/OList';
 
 const Basket = () => {
-     const route =useRoute();
-     const {t1,i1,t2}=route.params;
-console.log(t1,i1,t2);
+const route=useRoute();
+const {number,price,text,image}=route.params||null;
+ 
     const [isPopupVisible, setPopupVisible] = useState(false);
 
     const togglePopup = () => {
@@ -21,49 +22,30 @@ console.log(t1,i1,t2);
     return (
         <View>
             <Navbar />
-       <OList/>
+         
+            <OList text={text} image={image} number={number} price={price} />
+        
+
+
+
             <View
                 style={{
                     top: 250,
                     left: 20
                 }}
             >
-                <Text
-                    style={{
-                        fontSize: 19
-                    }}
-                >
-                    Total
-                </Text>
-                <Image
-                    source={require('../assets/curreny.png')}
-                    style={{
-                        width: 15,
-                        height: 15,
-                        top: 7,
-                        left: 7,
-                    }}
-                />
-                <Text
-                    style={{
-                        fontSize: 26,
-                        left: 22,
-                        top: -20
-                    }}
-                >
-                    23000
-                </Text>
-                <TouchableOpacity style={{ left: 120, top: -60 }} onPress={togglePopup}>
+             
+                <TouchableOpacity style={{ left: hp('14'), top: -60 }} onPress={togglePopup}>
                     <CustomPopup visible={isPopupVisible} onClose={togglePopup} />
                     <Text
                         style={{
                             fontFamily: 'HvDTrial_Brandon_Grotesque_black-BF64a625c944b08',
-                            top: -10,
+                            top: 35,
                             backgroundColor: '#FFA451',
                             borderRadius: 12,
                             width: 157,
                             height: 49,
-                            left: 60,
+                            left: 40,
                             fontSize: 24,
                             textAlign: 'center',
                             paddingTop: 9,

@@ -4,11 +4,10 @@ import React, { useState } from 'react'
 import Icon from 'react-native-vector-icons/EvilIcons';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import { useNavigation } from '@react-navigation/native';
-const BottomSection = ({text,image,text1,number,price}) => {
+import Navbar from '../HomeComponents/Navbar';
+const BottomSection = ({ number, price, text, image }) => {
+//console.log( number, price, text, image );
 
-const t1=text;
-const i1=image;
-const t2=text1;
     const [iconColor, setIconColor] = useState('#FFA451');
     const [bgColor, setBgColor] = useState('#FFF7F0');
    const navigation=useNavigation();
@@ -17,7 +16,7 @@ const t2=text1;
       setBgColor(bgColor === '#FFF7F0' ? '#FFA451' : '#FFF7F0'); 
     };
     
-console.log(t1,i1,t2);
+
   return (
     <View style={{top:90}}>
        <TouchableOpacity
@@ -56,14 +55,16 @@ console.log(t1,i1,t2);
                     textAlignVertical: 'center',
                     borderRadius: 10
                 }}
-                onPress={()=> navigation.navigate('Basket',{name:t1,image:i1,text1:t2,number:number,price:price})}
+                onPress={()=> navigation.navigate('Basket', {text,image,number,price})}
                 
-                
+               
             >
             
                 Add to favourate
             </Text>
+          
             </TouchableOpacity>
+            
     </View>
   )
 }

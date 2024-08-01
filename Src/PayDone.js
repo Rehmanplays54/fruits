@@ -12,7 +12,7 @@ const PayDone = () => {
 <Text style={{fontSize:18,width:192,textAlign:'center',top:20}}>Your order have been taken and is being attended to</Text>
 <Text
 style={styles.btn_1}
-onPress={()=>navigation.navigate('Torder')}
+onPress={()=>navigation.navigate('TrackOrder')}
 >
 track order
 </Text>

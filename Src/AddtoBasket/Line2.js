@@ -5,7 +5,7 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 const Line2 = () => {
   return (
     <View>
-       <Text style={{backgroundColor:'#000',height:hp('0.07%'),bottom:hp('-6%')}}></Text>
+       <Text style={{backgroundColor:'#000',height:hp('0.07%'),bottom:hp('1%')}}></Text>
     </View>
   )
 }

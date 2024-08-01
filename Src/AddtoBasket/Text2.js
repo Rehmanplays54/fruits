@@ -5,7 +5,7 @@ const Text2 = () => {
   return (
     <View
      style={{
-        top:hp('10%'),
+        top:hp('5%'),
         left:hp('3%'),
         width:hp('40')
         }}>

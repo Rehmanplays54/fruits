@@ -4,7 +4,7 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 const Text1 = () => {
   return (
     <View style={{
-      top:-15
+      top:-55
     }}>
       <Text
       style={{
