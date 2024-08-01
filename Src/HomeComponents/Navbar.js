@@ -2,13 +2,13 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { useNavigation } from '@react-navigation/native';
-import OList from '../OrderList/OList';
-
-const Navbar = ({ number, price, text, image }) => {
-  const navigation = useNavigation();
 
 
-  console.log('Navbar:', { number, price, text, image });
+const Navbar = () => {
+  //const navigation = useNavigation();
+// { number, price, text, image }
+
+//  console.log('Navbar:', { number, price, text, image });
 
   return (
     <View
@@ -26,7 +26,7 @@ const Navbar = ({ number, price, text, image }) => {
         source={require('../../assets/bars.png')}
       />
       <TouchableOpacity
-        onPress={() => navigation.navigate('Basket', { number, price, text, image })}
+        onPress={() => navigation.navigate('Basket')}
       >
         <Image
           style={{
