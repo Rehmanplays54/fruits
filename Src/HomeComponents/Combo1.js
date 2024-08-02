@@ -1,216 +1,143 @@
-import { View, Text, TouchableOpacity, Image } from 'react-native'
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { View, ScrollView, Image, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { useNavigation } from '@react-navigation/native';
+import CatagoriesData from '../../Components/Catagories';
 import Icon from 'react-native-vector-icons/EvilIcons';
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
-import Basket from '../Basket';
+
+
+
+
+const ListCatagories = () => {
+  const navigation = useNavigation();
+  const [iconColor, setIconColor] = useState('#FFA451');
+  const [bgColor, setBgColor] = useState('transparent');
+  const [activeId, setActiveId] = useState(-1);
+
+  const handlePress = (id) => {
+    setActiveId((pid) => pid === id ? -1 : id)
+
+    //setIconColor(iconColor === '#FFA451' ? '#fff' : '#FFA451');
+    // setBgColor(bgColor === 'transparent' ? '#FFA451' : 'transparent');
+  };
+
+  const Iccon = <Icon
+    name='heart'
+    size={30}
+    color='#ffa451'
+  />
+  return (
+    <ScrollView
+      showsHorizontalScrollIndicator={true}
+      horizontal
+      contentContainerStyle={styles.scrollViewContent}
+    >
+
+      {
+        CatagoriesData.map((item, index) => (
+          <View key={item.id} style={[
+            styles.box,
+            index <= CatagoriesData.length - 1 && styles.boxWithMargin,
+          ]}>
+            <TouchableOpacity onPress={() => navigation.navigate('Details', { id: item.id })}>
+              <TouchableOpacity
+                onPress={() => handlePress(item.id)}
+                style={{
+                  backgroundColor: item.id === activeId ? '#FFA451' : 'transparent',
+                  color: '#fff',
+                  width: wp('9'),
+                  borderRadius: 50,
+                  left: hp('12%'),
+                  top: hp('1%'),
+                  padding: 5
+                }}
+              >{item.heart}
+              </TouchableOpacity>
+              <Image
+                style={{
+                  width: wp('25%'),
+                  height: hp('12%'),
+                  borderRadius: 80,
+                  left: hp('2')
+                }}
+                source={item.image}
+
+              />
+              <Text
+                style={{
+                  fontWeight: 900,
+                  fontSize: 17
+                }}
+              >{item.name}</Text>
+              <Image
+                style={{
+                  left: hp('-22%'),
+                  top: hp('2%')
+                }}
+                source={item.c_btn} />
+              <Text
+                style={{
+                  fontWeight: 900,
+                  fontSize: 17,
+                  color: '#FFA451',
+                  left: hp('2.8%'),
+                  top: hp('-0.3%')
+                }}
+              >{item.price}</Text>
+              <Image
+                style={{
+
+                  left: hp('12.8%'),
+                  top: hp('-3%')
+                }}
+                source={item.add} />
+            </TouchableOpacity>
+          </View>
+        ))
+      }
+
+    </ScrollView>
+  );
+};
+
 const Combo1 = () => {
-    // const obj = {
-    //     name:'',
-    //     price:'',
-    //     image:require('../../assets/p.png')
-    // }
-    const name = 'Honey combo lambo';
-    const price = 8000;
-    const pricee = 2000;
-    const pima = require('../../assets/p.png');
-    const pimaa = require('../../assets/1.png');
-    const navigation = useNavigation();
-    const [iconColor, setIconColor] = useState('#FFA451');
-    const [bgColor, setBgColor] = useState('transparent');
-    const [icColor, setIcColor] = useState('#FFA451');
-    const [data, setData]= useState()
-    const [bgColr, setBgColr] = useState('transparent');
+  const navigation = useNavigation();
 
-    const handlePress = () => {
-       
-        setIconColor(iconColor === '#FFA451' ? '#fff' : '#FFA451'); // Toggle between black and red
-        setBgColor(bgColor === 'transparent' ? '#FFA451' : 'transparent'); // Toggle between white and grey
-    };
-    const handlePres = () => {
-        setData(obj)
-        setIcColor(icColor === '#FFA451' ? '#fff' : '#FFA451'); // Toggle between black and red
-        setBgColr(bgColr === 'transparent' ? '#FFA451' : 'transparent'); // Toggle between white and grey
-    };
-    return (
-        <View
-            style={{
-                top: hp('2%'),
-                left: hp('2%'),
-                width: wp('90%')
-            }}
-        >
-            <TouchableOpacity
-                onPress={() => navigation.navigate('Details', { text: name, image: pima, text1: price })}
-                style={{
-                    backgroundColor: '#F2F4F6',
-                    width: wp('45%'),
-                    alignItems: 'center',
-                    height: hp('25%'),
-                    elevation: 5,
-                    borderRadius: 13,
+  return (
+    <View style={styles.container}>
+      <ListCatagories />
+    </View>
+  );
+};
 
+const styles = StyleSheet.create({
+  container: {
+    width: '100%',
+    height: hp('30%'),
+    backgroundColor: '#fff',
+    top: hp('2%'),
+    left: hp('1%')
+  },
+  box: {
+    backgroundColor: '#f2f4f6',
+    width: wp('43%'),
+    alignItems: 'center',
+    height: hp('25%'),
+    elevation: 2,
+    left: hp('-1%'),
+    borderRadius: 20,
+  },
+  boxWithMargin: {
+    marginLeft: hp('1.5'),
+  },
+  scrollViewContent: {
+    flexDirection: 'row',
+  },
+  dealContainer: {
+    right: hp('-1%'),
+    width: wp('53%'), // Adjust this percentage based on your needs
+    marginRight: wp('1%'), // Optional: Add some spacing between deals
+  },
+});
 
-                }}>
-
-                <TouchableOpacity
-
-                    style={{
-                        backgroundColor: bgColor,
-                        borderRadius: 30,
-                        left: hp('7%'),
-                        top: hp('1%'),
-                        padding: 5
-
-                    }}
-                    onPress={handlePress}
-                >
-
-                    <Icon
-
-                        name='heart'
-                        size={30}
-                        color={iconColor}
-
-                    />
-                </TouchableOpacity>
-
-                <Image
-                    style=
-                    {{
-                        width: wp('24%'),
-                        height: hp('12%'),
-                        borderRadius: 30
-                    }}
-                    source=
-                    {
-                        pima
-                    }
-                />
-
-                <Text
-                    style={{
-                        fontWeight: 900,
-                        fontSize: 17
-                    }}
-                >
-                    {name}
-                </Text>
-                <Image
-                    style=
-                    {{
-                        left: hp('-7.5%'),
-                        top: hp('2%')
-                    }}
-
-                    source={require('../../assets/curreny.png')} />
-                <Text
-                    style={{
-                        fontWeight: 900,
-                        fontSize: 17,
-                        left: hp('-2.8%'),
-                        top: hp('-0.3%')
-                    }}>
-                    {price}
-                </Text>
-                <Image
-                    style={{
-
-                        left: hp('6.8%'),
-                        top: hp('-3%')
-                    }}
-                    source={
-                        require('../../assets/add.png')
-                    }
-                />
-            </TouchableOpacity>
-
-
-            <TouchableOpacity
-                onPress={() => navigation.navigate('Details', { text: name, image: pimaa, text1: pricee })}
-                style={{
-                    backgroundColor: '#F2F4F6',
-                    width: wp('45%'),
-                    alignItems: 'center',
-                    height: hp('25%'),
-                    elevation: 5,
-                    borderRadius: 13,
-                    left: hp('23%'),
-                    top: hp('-25%')
-
-                }}>
-
-                <TouchableOpacity
-                    style={{
-                        backgroundColor: bgColr,
-                        borderRadius: 30,
-                        left: hp('7%'),
-                        top: hp('1%'),
-                        padding: 5
-
-                    }}
-                    onPress={handlePres}
-                >
-
-                    <Icon
-                        name='heart'
-                        size={30}
-                        color={icColor}
-
-                    />
-                </TouchableOpacity>
-
-                <Image
-                    style=
-                    {{
-                        width: wp('24%'),
-                        height: hp('12%'),
-                        borderRadius: 30
-                    }}
-                    source=
-                    {
-                        pimaa
-                    }
-                />
-
-                <Text
-                    style={{
-                        fontWeight: 900,
-                        fontSize: 17
-                    }}
-                >
-                    {name}
-                </Text>
-                <Image
-                    style=
-                    {{
-                        left: hp('-7.5%'),
-                        top: hp('2%')
-                    }}
-
-                    source={require('../../assets/curreny.png')} />
-                <Text
-                    style={{
-                        fontWeight: 900,
-                        fontSize: 17,
-                        left: hp('-2.8%'),
-                        top: hp('-0.3%')
-                    }}>
-                    {pricee}
-                </Text>
-                <Image
-                    style={{
-
-                        left: hp('6.8%'),
-                        top: hp('-3%')
-                    }}
-                    source={
-                        require('../../assets/add.png')
-                    }
-                />
-            </TouchableOpacity>
-        </View>
-    )
-}
-
-export default Combo1
+export default Combo1;

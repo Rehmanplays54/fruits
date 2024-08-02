@@ -9,41 +9,15 @@ const OList = ({ text, image,number,price }) => {
       <View>
         <ScrollView style={{top:hp('4')}}>
           
-         <View style={{backgroundColor:'#FFFAEB',padding:10,left:35,width:60,top:9,borderRadius:12}}> 
-           <Image source={image} style={{width:40,height:40,}}/> 
+         <View style={{backgroundColor:'#FFFAEB',padding:10,left:hp('3'),width:hp('6'),top:hp('1'),borderRadius:12}}> 
+           <Image source={image} style={{width:wp('9'),left:hp('-0.3'),height:hp('4'),}}/> 
            </View>
-           <Text style={{left:100,top:-39,fontWeight:600}}>{text}</Text>
-           <Text style={{left:100,top:-32}}>{number}  Packs</Text>
-           <Image source={require('../../assets/curreny.png')}  style={{left:265,top:-55,fontSize:22}}/>
-           <Text style={{left:290,top:-75,fontSize:22}}>{price}</Text>
+           <Text style={{left:hp('10'),top:hp('-4.6'),fontWeight:600}}>{text}</Text>
+           <Text style={{left:hp('10'),top:hp('-4')}}>{number}  Packs</Text>
+           <Image source={require('../../assets/curreny.png')}  style={{left:hp('33'),top:hp('-7'),fontSize:22}}/>
+           <Text style={{left:hp('36'),top:hp('-9.5'),fontSize:22}}>{price}</Text>
         </ScrollView>
-        <View style={{top:hp('38'),left:30}}>
-        <Text
-                    style={{
-                        fontSize: 19
-                    }}
-                >
-                    Total
-                </Text>
-                <Image
-                    source={require('../../assets/curreny.png')}
-                    style={{
-                        width: 15,
-                        height: 15,
-                        top: 7,
-                        left: 2,
-                    }}
-                />
-                <Text
-                    style={{
-                        fontSize: 26,
-                        left: 23,
-                        top: -18
-                    }}
-                >
-                  {price}
-                </Text>
-                </View>
+       
         </View>
     );
 };

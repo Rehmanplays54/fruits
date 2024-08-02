@@ -4,7 +4,7 @@ import React,{useState} from 'react';
 import { Modal, View, Text, Button, TouchableOpacity,Image,TextInput } from 'react-native';
 
 import Cardpopup from './Cardpopup';
-
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 const DeliveryPopup = ({ visible, onClose }) => {
   const [isPopupVisible, setPopupVisible] = useState(false);
@@ -22,15 +22,15 @@ const DeliveryPopup = ({ visible, onClose }) => {
         onClose(); 
       }}
     >
-      <View style={{  paddingTop:310 ,height:500,backgroundColor:'rgba(0,0,0,0.5)' }}>
+      <View style={{  flex:10,justifyContent:'flex-end',alignItems:'center' ,height:hp('20%'),backgroundColor:'rgba(0,0,0,0.5)' }}>
       <TouchableOpacity onPress={onClose}>
-      <Image source={require('../assets/Cancel.png')} style={{bottom:20,left:160}} />  
+      <Image source={require('../assets/Cancel.png')} style={{bottom:20,left:0}} />  
       </TouchableOpacity>
-      <View style={{ width:367,height:406,top:30 ,backgroundColor: 'white', padding: 20, borderRadius: 10, alignItems: 'center' }}>
+      <View style={{ width:wp('100%'),height:hp('45%'),top:30 ,backgroundColor: 'white', padding: hp('4'), borderRadius: 10, alignItems: 'center' }}>
           <Text
           style={{
-            right:90,
-            bottom:7,
+            right:hp('10%'),
+            bottom:hp('1'),
             fontSize:20
           }}>
           Delivery address
@@ -38,9 +38,9 @@ const DeliveryPopup = ({ visible, onClose }) => {
           <TextInput 
           style={{
             backgroundColor:'#F3F1F1',
-            width :297,
-             height:50,
-             paddingLeft:10,
+            width :hp('38%'),
+             height:hp('6%'),
+             paddingLeft:hp('1'),
              
              borderRadius:12
             }} 
@@ -48,22 +48,24 @@ const DeliveryPopup = ({ visible, onClose }) => {
             />
           <Text
           style={{
-            right:90,
-            top:10,
+            right:hp('11%'),
+            top:hp('1'),
             fontSize:20
           }}>Number we call</Text>
           <TextInput 
           style={{
             backgroundColor:'#F3F1F1',
-            width :297,
-             height:50,
+            width :hp('38%'),
+            height:hp('6%'),
              borderRadius:12,
-             paddingLeft:10,
+             paddingLeft:hp('1'),
              top:20
             }} 
           placeholder='call number' />
           <TouchableOpacity onPress={()=>navigation.navigate('DevliveryPopup2')} style={{
-            right:90,
+            right:hp('11'),
+            
+          
           }}> 
          
          <Text 
@@ -71,13 +73,13 @@ const DeliveryPopup = ({ visible, onClose }) => {
              fontFamily: 'HvDTrial_Brandon_Grotesque_black-BF64a625c944b08',
             borderColor:'#FFA451',
             backgroundColor:'#fff',
-             top:90,
+             top:hp('9'),
              borderRadius: 12,
-             width: 120,
+             width: hp('16'),
              height: 49, 
-           borderWidth:3,
+           borderWidth:2,
             fontSize: 24,
-             textAlign: 'center', paddingTop: 9, color: '#FFA451'
+             textAlign: 'center', padding:hp('1'), color: '#FFA451'
          }} onPress={togglePopup}
      >
          Pay Online
@@ -85,8 +87,8 @@ const DeliveryPopup = ({ visible, onClose }) => {
      <Cardpopup visible={isPopupVisible} onClose={togglePopup}/>
      </TouchableOpacity>
      <TouchableOpacity  style={{
-        left:70,
-        top:-50
+        left:hp('9'),
+ 
       }} >
          
      <Text 
@@ -96,12 +98,12 @@ const DeliveryPopup = ({ visible, onClose }) => {
         backgroundColor:'#fff',
          
          borderRadius: 12,
-         width: 120,
-         height: 49, 
-       borderWidth:3,
-       top:90,
+         width: wp('40'),
+         height: hp('5.5'), 
+       borderWidth:2,
+       top:hp('3.2'),
         fontSize: 24,
-         textAlign: 'center', paddingTop: 9, color: '#FFA451'
+         textAlign: 'center', padding:hp('1'), color: '#FFA451'
      }} onPress={()=>navigation.navigate('PayDone')}
  >
      Cash Delivery

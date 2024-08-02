@@ -22,15 +22,15 @@ const Cardpopup = ({ visible, onClose }) => {
         onClose(); 
       }}
     >
-      <View style={{  paddingTop:310 ,height:500,backgroundColor:'rgba(0,0,0,0.2)' }}>
+      <View style={{   flex:10,justifyContent:'flex-end',alignItems:'center' ,height:hp('25%'),backgroundColor:'rgba(0,0,0,0.2)' }}>
       <TouchableOpacity onPress={onClose}>
-      <Image source={require('../assets/Cancel.png')} style={{bottom:20,left:160}} />  
+      <Image source={require('../assets/Cancel.png')} style={{bottom:20,left:0}} />  
       </TouchableOpacity>
-      <View style={{ width:367,height:506,top:30 ,backgroundColor: 'white', padding: 20, borderRadius: 10, alignItems: 'center' }}>
+      <View style={{width:wp('100%'),height:hp('57%'),top:30 ,backgroundColor: 'white', padding: 20, borderRadius: 10, alignItems: 'center' }}>
           <Text
           style={{
-            right:85,
-            bottom:7,
+            right:hp('9'),
+            bottom:hp('1'),
             fontSize:20
           }}>
           Card Holder name
@@ -38,71 +38,72 @@ const Cardpopup = ({ visible, onClose }) => {
           <TextInput 
           style={{
             backgroundColor:'#F3F1F1',
-            width :297,
-             height:50,
-             paddingLeft:10,
-             
+            width :wp('80'),
+             height:hp('6'),
+             paddingLeft:hp('2'),
              borderRadius:12
             }} 
             placeholder='Name' 
             />
           <Text
           style={{
-            right:95,
-            top:10,
+            right:hp('11.5'),
+            bottom:hp('-1'),
             fontSize:20
           }}>Card Number</Text>
           <TextInput 
           style={{
             backgroundColor:'#F3F1F1',
-            width :297,
-             height:50,
+            width :wp('80'),
+            height:hp('6'),
+            paddingLeft:hp('2'),
              borderRadius:12,
-             paddingLeft:10,
+             
              top:20
             }} 
           placeholder='1234 5678 9012 3456' />
           <Text
           style={{
-            right:120,
-            top:30,
+            right:hp('16'),
+            top:hp('3'),
             fontSize:20
           }}>Date</Text>
           <TextInput 
           style={{
             backgroundColor:'#F3F1F1',
-            width :137,
-             height:50,
+            width :wp('35'),
+             height:hp('6'),
              borderRadius:12,
-             paddingLeft:10,
-             right:75,
-             top:35
+             paddingLeft:hp('2'),
+             right:hp('10.5'),
+             top:hp('4.3')
             }} 
           placeholder='10/30' />
            <Text
           style={{
-            right:-32,
-            top:-43,
+            right:hp('-3.5'),
+            top:hp('-5.5'),
             fontSize:20
           }}>CCV</Text>
           <TextInput 
           style={{
             backgroundColor:'#F3F1F1',
-            width :137,
-             height:50,
+            width :wp('35'),
+            height:hp('6'),
              borderRadius:12,
-             paddingLeft:10,
-             right:-80,
-             top:-39
+             paddingLeft:hp('1'),
+             right:hp('-9'),
+             top:hp('-4.7')
             }} 
           placeholder='123' />
           <TouchableOpacity  onPress={()=>navigation.navigate('DevliveryPopup2')} style={{
-           width:362,
-           height:90,
+           width:wp('100%'),
+           height:('40%'),
             backgroundColor:'#FFA451',
-            top:-20,
-            borderRadius:16,
-            left:-3
+            borderRadius:19,
+            flex:1,alignItems:'center',
+            justifyContent:'center'
+            
           }}> 
          
          <Text 
@@ -110,11 +111,10 @@ const Cardpopup = ({ visible, onClose }) => {
              fontFamily: 'HvDTrial_Brandon_Grotesque_black-BF64a625c944b08',
           
             backgroundColor:'#fff',
-           top:12,
              borderRadius: 12,
-             width: 150,
-             height: 49, 
-         left:105,
+             width: hp('27'),
+             height: hp('6'), 
+        
             fontSize: 24,
              textAlign: 'center', paddingTop: 9, color: '#FFA451'
          }} onPress={togglePopup}

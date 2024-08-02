@@ -7,14 +7,14 @@
 
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import {
   TextInput,
   Image,
   StyleSheet,
   Text,
-  
+
   View,
 } from 'react-native';
 import SplashScreen from './Src/SplashScreen';
@@ -22,31 +22,30 @@ import Start from './Src/Start';
 import Login from './Src/Login';
 import Home from './Src/Home';
 import Details from './Src/Details';
-import Navbar from './Src/AddtoBasket/Navbar';
 import Basket from './Src/Basket';
 import PayDone from './Src/PayDone';
 import TrackOrder from './Src/TrackOrder';
 
 
 function App() {
+   
+  const Stack = createNativeStackNavigator();
 
-const Stack=createNativeStackNavigator();
+  return (
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name='SplashScreen' component={SplashScreen} />
+        <Stack.Screen name='Start' component={Start} />
+        <Stack.Screen name='Login' component={Login} />
+        <Stack.Screen name='Home' component={Home} />
+        <Stack.Screen name='Details' component={Details} />
+        <Stack.Screen name='Basket' component={Basket} />
+        <Stack.Screen name='PayDone' component={PayDone} />
+        <Stack.Screen name='TrackOrder' component={TrackOrder} />
 
-return(
-   <NavigationContainer>
-    <Stack.Navigator screenOptions={{headerShown:false}}>
-    <Stack.Screen name='SplashScreen' component={SplashScreen} />
-<Stack.Screen name='Start' component={Start} />
-<Stack.Screen name='Login' component={Login} /> 
-    <Stack.Screen name='Home' component={Home} />
-    <Stack.Screen name='Details' component={Details} />
-    <Stack.Screen name='Basket' component={Basket} />
-    <Stack.Screen name='PayDone' component={PayDone} />
-    <Stack.Screen name='TrackOrder' component={TrackOrder} />
+      </Stack.Navigator>
 
-    </Stack.Navigator>
-
-   </NavigationContainer>
+    </NavigationContainer>
   );
 }
 

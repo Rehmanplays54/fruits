@@ -5,22 +5,47 @@ const NewNavigation = () => {
     const [activeTab, setActiveTab] = useState('Hottest');
   return (
     <View style={styles.container}>
-<TouchableOpacity onPress={() => setActiveTab('Hottest')} style={styles.tab}>
-    <Text style={[styles.tabText, activeTab === 'Hottest' && styles.activeTabText]}>Hottest</Text>
+<TouchableOpacity
+ onPress={
+    () => setActiveTab('Hottest')
+    }
+     style={styles.tab}>
+    <Text
+     style={[
+        styles.tabText, 
+        activeTab === 'Hottest' && styles.activeTabText
+        ]}
+        >Hottest
+        </Text>
     {activeTab === 'Hottest' && <View style={styles.activeTabLine} />}
 </TouchableOpacity>
 
-<TouchableOpacity onPress={() => setActiveTab('Popular')} style={styles.tab}>
-    <Text style={[styles.tabText, activeTab === 'Popular' && styles.activeTabText]}>Popular</Text>
+<TouchableOpacity 
+onPress={() => setActiveTab('Popular')}
+ style={styles.tab}>
+    <Text
+     style={
+        [styles.tabText, activeTab === 'Popular' && styles.activeTabText]}>
+            Popular
+            </Text>
     {activeTab === 'Popular' && <View style={styles.activeTabLine} />}
 </TouchableOpacity>
 
-<TouchableOpacity onPress={() => setActiveTab('New combo')} style={styles.tab}>
-    <Text style={[styles.tabText, activeTab === 'New combo' && styles.activeTabText]}>New combo</Text>
-    {activeTab === 'New combo' && <View style={styles.activeTabLine} />}
+<TouchableOpacity
+ onPress={() => 
+ setActiveTab('New combo')} 
+ style={styles.tab}>
+    <Text 
+    style={
+        [styles.tabText, activeTab === 'New combo' && styles.activeTabText]}>
+            New combo</Text>
+    {activeTab === 'New combo' && <View style={styles.activeTabLine}
+     />}
 </TouchableOpacity>
 
-<TouchableOpacity onPress={() => setActiveTab('Top')} style={styles.tab}>
+<TouchableOpacity
+ onPress={() => setActiveTab('Top')}
+  style={styles.tab}>
     <Text style={[styles.tabText, activeTab === 'Top' && styles.activeTabText]}>Top</Text>
     {activeTab === 'Top' && <View style={styles.activeTabLine} />}
 </TouchableOpacity>
@@ -35,7 +60,7 @@ export default NewNavigation
                 justifyContent: 'space-around',
                 backgroundColor: '#fff',
                 
-                top: -150
+                top: 2
             },
             tab: {
                 alignItems: 'center',

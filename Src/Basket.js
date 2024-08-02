@@ -28,24 +28,45 @@ const {number,price,text,image}=route.params||null;
 
 
 
-            <View
-                style={{
-                    top: 250,
-                    left: 20
-                }}
-            >
-             
-                <TouchableOpacity style={{ left: hp('14'), top: -60 }} onPress={togglePopup}>
+      
+          
+            <View style={{top:hp('38'),left:30}}>
+        <Text
+                    style={{
+                        fontSize: 19
+                    }}
+                >
+                    Total
+                </Text>
+                <Image
+                    source={require('../assets/curreny.png')}
+                    style={{
+                        width: wp('5'),
+                        height: hp('2.5'),
+                        top: 7,
+                        left: 2,
+                    }}
+                />
+                <Text
+                    style={{
+                        fontSize: 26,
+                        left: hp('3.3'),
+                        top:hp('-2.7')
+                    }}
+                >
+                  {price}
+                </Text>
+                </View>
+                <TouchableOpacity style={{ left: hp('14'), top: hp('29%'),}} onPress={togglePopup}>
                     <CustomPopup visible={isPopupVisible} onClose={togglePopup} />
                     <Text
                         style={{
                             fontFamily: 'HvDTrial_Brandon_Grotesque_black-BF64a625c944b08',
-                            top: 35,
                             backgroundColor: '#FFA451',
                             borderRadius: 12,
-                            width: 157,
-                            height: 49,
-                            left: 40,
+                            width: wp('42'),
+                            height: hp('6'),
+                            left: hp('5'),
                             fontSize: 24,
                             textAlign: 'center',
                             paddingTop: 9,
@@ -55,8 +76,6 @@ const {number,price,text,image}=route.params||null;
                         Checkout
                     </Text>
                 </TouchableOpacity>
-            </View>
-
             
         </View>
     );
