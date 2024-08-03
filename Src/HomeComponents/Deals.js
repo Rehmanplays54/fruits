@@ -40,13 +40,17 @@ const ListCatagories = () => {
                 style={{
                   backgroundColor: item.id === activeId ? '#FFA451' : 'transparent',
                   color: '#fff',
-                  width: wp('9'),
+                  width: wp('10'),
                   borderRadius: 50,
                   left: hp('12%'),
                   top: hp('1%'),
                   padding: 5
                 }}
-              >{item.heart}
+              ><Icon
+              name='heart'
+              size={30}
+              color={item.id === activeId ? '#fff' : '#FFA451'}
+            />
               </TouchableOpacity>
 
               <Image

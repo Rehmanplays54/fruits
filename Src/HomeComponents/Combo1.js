@@ -10,13 +10,11 @@ import Icon from 'react-native-vector-icons/EvilIcons';
 
 const ListCatagories = () => {
   const navigation = useNavigation();
-  const [iconColor, setIconColor] = useState('#FFA451');
-  const [bgColor, setBgColor] = useState('transparent');
   const [activeId, setActiveId] = useState(-1);
 
   const handlePress = (id) => {
     setActiveId((pid) => pid === id ? -1 : id)
-
+  
     //setIconColor(iconColor === '#FFA451' ? '#fff' : '#FFA451');
     // setBgColor(bgColor === 'transparent' ? '#FFA451' : 'transparent');
   };
@@ -45,13 +43,17 @@ const ListCatagories = () => {
                 style={{
                   backgroundColor: item.id === activeId ? '#FFA451' : 'transparent',
                   color: '#fff',
-                  width: wp('9'),
-                  borderRadius: 50,
+                  width: wp('10'),
+                  borderRadius: 100,
                   left: hp('12%'),
                   top: hp('1%'),
                   padding: 5
                 }}
-              >{item.heart}
+              ><Icon
+              name='heart'
+              size={30}
+              color={item.id === activeId ? '#fff' : '#FFA451'}
+            />
               </TouchableOpacity>
               <Image
                 style={{
