@@ -36,7 +36,9 @@ function App() {
     <DataProvider>
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-      
+      <Stack.Screen name='SplashScreen' component={SplashScreen} />
+<Stack.Screen name='Start' component={Start} />
+<Stack.Screen name='Login' component={Login} /> 
         <Stack.Screen name='Home' component={Home} />
         <Stack.Screen name='Details' component={Details} />
         <Stack.Screen name='Basket' component={Basket} />
@@ -50,9 +52,7 @@ function App() {
   );
 }
 
-{/* <Stack.Screen name='SplashScreen' component={SplashScreen} />
-<Stack.Screen name='Start' component={Start} />
-<Stack.Screen name='Login' component={Login} /> */}
+
 
 
 const styles = StyleSheet.create({
