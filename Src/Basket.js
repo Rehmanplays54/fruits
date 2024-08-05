@@ -1,16 +1,23 @@
 // MainScreen.js
-import React, { useState, useEffect } from 'react';
-import { View, TouchableOpacity, Text, Image, StyleSheet, ScrollView } from 'react-native';
+import React, { useState, useEffect, useContext } from 'react';
+import { View, TouchableOpacity, Text, Image, StyleSheet, ScrollView, FlatList } from 'react-native';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import CustomPopup from './DeliveryPopup';
-import Navbar from './OrderList/Navbar';
+
 import OList from './OrderList/OList';
 
+import { MyContext } from './Context/FContext';
+import Navbar from './OrderList/Navbar';
+
 const Basket = () => {
-const route=useRoute();
-const {number,price,text,image}=route.params||null;
- 
+
+    
+ const route=useRoute();
+const {price,id,number}=route.params||null;
+
+
+  const {data}=useContext(MyContext);
     const [isPopupVisible, setPopupVisible] = useState(false);
 
     const togglePopup = () => {
@@ -18,15 +25,84 @@ const {number,price,text,image}=route.params||null;
     };
 
     const navigation = useNavigation();
+    
+    const renderItem = ({ item }) => {
+        if (item.id === id) {
+            return (
+                <View key={item.id}>
+                    <Text
+                    style={{
+                        left:wp('26'),
+                        top:hp('4')
+                    }}
+                    >{item.name}</Text>
+                    <Text style={{
+                        left:hp('12'),
+                        top:hp('4.5')
+                    }}>{number}  Packs</Text>
+                    <Image
+                    style={{
+                        width:wp('12.5'),
+                        height:hp('6'),
+                        left:hp('4'),
+                        top:hp('-0.5')
+                    }}
+                    
+                    source={item.image} />
 
+                    <Image 
+                    style={{left:hp('36'),
+                        bottom:hp('4')
+                    }}
+                    source={require('../assets/curreny.png')}/>
+                    <Text
+                    style={{
+                        left:hp('39'),
+                        fontSize:18,
+                        bottom:hp('6.3')   
+                        }}
+                    >{price}</Text>
+                </View>
+            );
+        }
+        return null;
+    };
+
+ if (price===0,id===0,number===0){
+    return(
+        <View>
+                  < Navbar/>
+        <Text style={
+            {
+                left:120,
+                top:200
+            }
+        }>No Add to favourrite items</Text>
+        </View>
+    )
+ }
+ else{
     return (
         <View>
-            <Navbar />
+
+            {/* {
+                Catagories.map(item=>(
+                    item.id===id ?(
+                        <View key={item.id} style={item.id===id}>
+                                <Image source={item.image}/>
+                        </View>
+                    ):null
+               ))
+            } */}
+            < Navbar/>
          
-            <OList text={text} image={image} number={number} price={price} />
+            {/* <OList text={text} image={image} number={number} price={price} /> */}
         
-
-
+            <FlatList
+      data={data}
+      renderItem={renderItem}
+      keyExtractor={item => item.id}
+    />
 
       
           
@@ -66,7 +142,7 @@ const {number,price,text,image}=route.params||null;
                             borderRadius: 12,
                             width: wp('42'),
                             height: hp('6'),
-                            left: hp('5'),
+                            left: hp('12'),
                             fontSize: 24,
                             textAlign: 'center',
                             paddingTop: 9,
@@ -79,6 +155,7 @@ const {number,price,text,image}=route.params||null;
             
         </View>
     );
+}
 };
 
 export default Basket;

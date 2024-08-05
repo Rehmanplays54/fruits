@@ -4,6 +4,8 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 import { useNavigation } from '@react-navigation/native';
 import CatagoriesData from '../../Components/Catagories';
 import Icon from 'react-native-vector-icons/EvilIcons';
+import Basket from '../Basket';
+
 
 
 
@@ -14,8 +16,9 @@ const ListCatagories = () => {
   const [activeId, setActiveId] = useState(-1);
 
   const handlePress = (id) => {
-    setActiveId((pid) => pid === id ? -1 : id)
-
+    setActiveId((pid) => pid === id ? -1 : id);
+    {<Basket item={id}/>}
+  
     //setIconColor(iconColor === '#FFA451' ? '#fff' : '#FFA451');
     // setBgColor(bgColor === 'transparent' ? '#FFA451' : 'transparent');
   };
@@ -50,7 +53,9 @@ const ListCatagories = () => {
               name='heart'
               size={30}
               color={item.id === activeId ? '#fff' : '#FFA451'}
+           
             />
+        
               </TouchableOpacity>
 
               <Image

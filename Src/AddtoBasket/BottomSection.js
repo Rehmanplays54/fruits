@@ -5,8 +5,9 @@ import Icon from 'react-native-vector-icons/EvilIcons';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import { useNavigation } from '@react-navigation/native';
 import Navbar from '../HomeComponents/Navbar';
-const BottomSection = ({ number, price, text, image }) => {
+const BottomSection = ({price,id,number}) => {
 //console.log( number, price, text, image );
+
 
     const [iconColor, setIconColor] = useState('#FFA451');
     const [bgColor, setBgColor] = useState('#FFF7F0');
@@ -19,6 +20,7 @@ const BottomSection = ({ number, price, text, image }) => {
 
   return (
     <View style={{top:90}}>
+    
        <TouchableOpacity
         style={{
           backgroundColor:bgColor,
@@ -55,7 +57,7 @@ const BottomSection = ({ number, price, text, image }) => {
                     textAlignVertical: 'center',
                     borderRadius: 10
                 }}
-                onPress={()=> navigation.navigate('Basket', {text,image,number,price})}
+                onPress={()=> navigation.navigate('Basket', {price,id,number})}
                 
                
             >

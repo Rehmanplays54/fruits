@@ -4,10 +4,6 @@ import Navbar from './AddtoBasket/Navbar'
 import { useNavigation } from '@react-navigation/native'
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Pricecount from './AddtoBasket/Pricecount';
-import Line from './AddtoBasket/Line';
-import Text1 from './AddtoBasket/Text1';
-import Line2 from './AddtoBasket/Line2';
-import Text2 from './AddtoBasket/Text2';
 import BottomSection from './AddtoBasket/BottomSection';
 import Catagories from '../Components/Catagories';
 
@@ -44,12 +40,49 @@ const Details = ({ route }) => {
                 }}>
                   {item.name}
                 </Text>
-                <Pricecount text1={item.price} text={item.name} image={item.image} />
+                <Pricecount text1={item.price} id={item.id}/>
                 <View style={{ top: -95 }}>
-                  <Line />
-                  <Text1 />
-                  < Line2 />
-                  <Text2 />
+                <Text style={{backgroundColor:'#000',height:hp('0.07%'),bottom:hp('4%')}}></Text>
+                <View style={{
+      top:-10
+    }}>
+      <Text
+      style={{
+        left:hp('3%'),
+        fontSize:22,
+      }}
+      >One Pack Contains:</Text>
+       <Text 
+       style={{
+        backgroundColor:'orange',
+        height:hp('0.2%'),
+        width:wp('40%'),
+        left:hp('3%'),
+        bottom:hp('-1%')}}
+        ></Text>
+        <Text
+        style={{
+            fontSize:18,
+            left:hp('3'),
+            top:hp('2%')
+        }}
+        >
+        Red Quinoa, Lime, Honey, Blueberries, Strawberries, Mango, Fresh mint.
+        </Text>
+    </View>
+    <Text style={{backgroundColor:'#000',height:hp('0.07%'),bottom:hp('-4%')}}></Text>
+    <View
+     style={{
+        top:hp('5%'),
+        left:hp('3%'),
+        width:hp('40')
+        }}>
+      <Text
+      style={{
+        fontSize:15
+      }}
+      >If you are looking for a new fruit salad to eat today, quinoa is the perfect brunch for you. make</Text>
+    </View>
                 </View>
                 <BottomSection />
               </View>

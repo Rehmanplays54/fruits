@@ -1,12 +1,12 @@
 import { View, Text, Image, Alert, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
-import Text1 from './Text1';
+
 import BottomSection from './BottomSection';
 import OList from '../OrderList/OList';
 import Navbar from '../HomeComponents/Navbar';
 
-const Pricecount = ({text1,text,image}) => {
+const Pricecount = ({text1,id}) => {
   
 
     const [number,setnumber]=useState(1);
@@ -98,11 +98,8 @@ const Pricecount = ({text1,text,image}) => {
       
         {price}</Text>
 
-        <BottomSection text={text} image={image} number={number} price={price}/>
-     <View style={{top:500}}> 
-       <Navbar text={text} image={image} number={number} price={price} />
-       
-       </View>
+        <BottomSection price={price} id={id} number={number}/>
+    
     </View>
   )
 }
