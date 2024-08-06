@@ -8,7 +8,17 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 
 const Cardpopup = ({ visible, onClose }) => {
   const [isPopupVisible, setPopupVisible] = useState(false);
-
+  const [inputValue, setInputValue] = useState('');
+  const [error, setError] = useState(false);
+const handlepress = () => {
+  if (inputValue === '') {
+      setError(true);
+  } else {
+    setError(false);
+    
+    console.log('Input Value:', inputValue);
+  }
+};
   const togglePopup = () => {
     setPopupVisible(!isPopupVisible);
   };

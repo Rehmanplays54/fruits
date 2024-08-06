@@ -35,7 +35,7 @@ const ListCatagories = () => {
         CatagoriesData.map((item, index) => (
           <View key={item.id} style={[
             styles.box,
-            index <= CatagoriesData.length - 1 && styles.boxWithMargin,
+      styles.boxWithMargin,
           ]}>
             <TouchableOpacity onPress={() => navigation.navigate('Details', { id: item.id })}>
               <TouchableOpacity
@@ -45,7 +45,7 @@ const ListCatagories = () => {
                   color: '#fff',
                   width: wp('10'),
                   borderRadius: 100,
-                  left: hp('12%'),
+                  left: hp('11%'),
                   top: hp('1%'),
                   padding: 5
                 }}
@@ -60,7 +60,7 @@ const ListCatagories = () => {
                   width: wp('25%'),
                   height: hp('12%'),
                   borderRadius: 80,
-                  left: hp('2')
+                  left: hp('1')
                 }}
                 source={item.image}
 
@@ -68,24 +68,26 @@ const ListCatagories = () => {
               <Text
                 style={{
                   fontWeight: 900,
-                  fontSize: 17
+                  fontSize: 17,
+                  
                 }}
               >{item.name}</Text>
-              <Image
-                style={{
-                  left: hp('-22%'),
-                  top: hp('2%')
-                }}
-                source={item.c_btn} />
+             
               <Text
                 style={{
                   fontWeight: 900,
                   fontSize: 17,
                   color: '#FFA451',
                   left: hp('2.8%'),
-                  top: hp('-0.3%')
+                  top: hp('1.3%'),
                 }}
               >{item.price}</Text>
+                 <Image
+                style={{
+                  left: hp('-1%'),
+                  top: hp('-1%')
+                }}
+                source={item.c_btn} />
               <Image
                 style={{
 
@@ -93,6 +95,7 @@ const ListCatagories = () => {
                   top: hp('-3%')
                 }}
                 source={item.add} />
+                
             </TouchableOpacity>
           </View>
         ))

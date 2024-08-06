@@ -33,6 +33,8 @@ const ListCatagories = () => {
 
       {
         CatagoriesData.map((item, index) => (
+        
+          
           <View key={item.id} style={[
             styles.box,
             index <= CatagoriesData.length - 1 && styles.boxWithMargin,
@@ -43,9 +45,9 @@ const ListCatagories = () => {
                 style={{
                   backgroundColor: item.id === activeId ? '#FFA451' : 'transparent',
                   color: '#fff',
-                  width: wp('10'),
+                  width: wp('11'),
                   borderRadius: 50,
-                  left: hp('12%'),
+                  left: hp('11%'),
                   top: hp('1%'),
                   padding: 5
                 }}
@@ -63,7 +65,7 @@ const ListCatagories = () => {
                   width: wp('25%'),
                   height: hp('12%'),
                   borderRadius: 80,
-                  left: hp('2')
+                  left: hp('1.5')
                 }}
                 source={item.image}
 
@@ -76,10 +78,12 @@ const ListCatagories = () => {
               >{item.name}</Text>
               <Image
                 style={{
-                  left: hp('-22%'),
+                  left: hp('-1%'),
                   top: hp('2%')
                 }}
                 source={item.c_btn} />
+              
+                
               <Text
                 style={{
                   fontWeight: 900,
@@ -111,6 +115,13 @@ const Deals = () => {
   return (
     <View style={styles.container}>
       <ListCatagories />
+      {
+        CatagoriesData.map(item=>{
+       
+          <Image style={{width:'100%'}} source={item.c_btn}/>
+          
+        })
+      }
     </View>
   );
 };

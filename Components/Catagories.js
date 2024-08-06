@@ -19,7 +19,7 @@ const Catagories = [
     },
     {
         id: 2,
-        name: 'Honey lime combo',
+        name: 'Honey  combo',
         price: '4000',
         add: require('../assets/add.png'),
         image: require('../assets/2.png'),
@@ -29,7 +29,7 @@ const Catagories = [
     },
     {
         id: 3,
-        name: 'Honey lime combo',
+        name: 'lime combo',
         price: '6000',
         image: require('../assets/p2.png'),
         c_btn: require('../assets/curreny.png'),

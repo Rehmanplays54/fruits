@@ -29,25 +29,25 @@ import { DataProvider } from './Src/Context/FContext';
 
 
 function App() {
-   
+
   const Stack = createNativeStackNavigator();
 
   return (
     <DataProvider>
-    <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name='SplashScreen' component={SplashScreen} />
-<Stack.Screen name='Start' component={Start} />
-<Stack.Screen name='Login' component={Login} /> 
-        <Stack.Screen name='Home' component={Home} />
-        <Stack.Screen name='Details' component={Details} />
-        <Stack.Screen name='Basket' component={Basket} />
-        <Stack.Screen name='PayDone' component={PayDone} />
-        <Stack.Screen name='TrackOrder' component={TrackOrder} />
-   
-      </Stack.Navigator>
+      <NavigationContainer>
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name='SplashScreen' component={SplashScreen} />
+          <Stack.Screen name='Start' component={Start} />
+          <Stack.Screen name='Login' component={Login} />
+          <Stack.Screen name='Home' component={Home} />
+          <Stack.Screen name='Details' component={Details} />
+          <Stack.Screen name='Basket' component={Basket} />
+          <Stack.Screen name='PayDone' component={PayDone} />
+          <Stack.Screen name='TrackOrder' component={TrackOrder} />
 
-    </NavigationContainer>
+        </Stack.Navigator>
+
+      </NavigationContainer>
     </DataProvider>
   );
 }
@@ -75,3 +75,5 @@ const styles = StyleSheet.create({
 });
 
 export default App;
+
+

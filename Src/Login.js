@@ -1,8 +1,18 @@
-import { Image, StyleSheet, Text, TextInput, View } from 'react-native'
-import React from 'react'
+import { Alert, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import React, { useState } from 'react'
 import { NavigationContainer,useNavigation } from '@react-navigation/native';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 const Login = () => {
+    const [inputValue, setInputValue] = useState('');
+    const [error, setError] = useState(false);
+  const handlepress = () => {
+    if (inputValue === '') {
+        setError(true);
+    } else {
+navigation.navigate('Home')
+    }
+  };
     const navigation = useNavigation();
     return (
         <View style={{backgroundColor:'#ffffff'}}>
@@ -31,16 +41,24 @@ const Login = () => {
                 style={styles.Tbask_1}>
                 What is your firstname?
             </Text>
-            <TextInput
+            <TextInput 
              placeholder='Tony' 
-             style={styles.InputBox_1}
+             value={inputValue}
+             onChangeText={text => {
+                setInputValue(text);
+                setError(false);
+              }}
+             style={[styles.InputBox_1, error && styles.inputError]}
              />
-            <Text
+             <TouchableOpacity >
+             {error ? <Text style={styles.errorText}>Please enter your name</Text> : null}
+            <Text 
                 style={styles.btn_1}
-                onPress={()=>navigation.navigate('Home')}
+               onPress={handlepress}
             >
                 Start Ordering
             </Text>
+            </TouchableOpacity>
         </View>
     )
 }
@@ -123,7 +141,16 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFA451',
         textAlignVertical: 'center',
         borderRadius: 10
-    }
+    },
+    inputError: {
+        borderColor: 'red',
+      },
+      errorText: {
+        color: 'red',
+
+        top:hp('68%'),
+        left:hp('3')
+      },
 
 
 
