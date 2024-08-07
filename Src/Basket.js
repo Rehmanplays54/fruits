@@ -5,10 +5,11 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 import { useRoute, useNavigation } from '@react-navigation/native';
 import CustomPopup from './DeliveryPopup';
 
-import OList from './OrderList/OList';
 
-import { MyContext } from './Context/FContext';
+
+import { DataProvider, MyContext, usecartcontext} from './Context/FContext';
 import Navbar from './OrderList/Navbar';
+import OList from './OrderList/OList';
 
 const Basket = () => {
 
@@ -18,6 +19,7 @@ const {price,id,number}=route.params||null;
 
 
   const {data}=useContext(MyContext);
+ const {cart}=usecartcontext();
     const [isPopupVisible, setPopupVisible] = useState(false);
 
     const togglePopup = () => {
@@ -25,63 +27,12 @@ const {price,id,number}=route.params||null;
     };
 
     const navigation = useNavigation();
+   
+    console.log(cart);
     
-    const renderItem = ({ item }) => {
-        if (item.id === id) {
-            return (
-                <View key={item.id}>
-                    <Text
-                    style={{
-                        left:wp('26'),
-                        top:hp('4')
-                    }}
-                    >{item.name}</Text>
-                    <Text style={{
-                        left:hp('12'),
-                        top:hp('4.5')
-                    }}>{number}  Packs</Text>
-                    <Image
-                    style={{
-                        width:wp('12.5'),
-                        height:hp('6'),
-                        left:hp('4'),
-                        top:hp('-0.5')
-                    }}
-                    
-                    source={item.image} />
 
-                    <Image 
-                    style={{left:hp('36'),
-                        bottom:hp('4')
-                    }}
-                    source={require('../assets/curreny.png')}/>
-                    <Text
-                    style={{
-                        left:hp('39'),
-                        fontSize:18,
-                        bottom:hp('6.3')   
-                        }}
-                    >{price}</Text>
-                </View>
-            );
-        }
-        return null;
-    };
 
- if (price===0,id===0,number===0){
-    return(
-        <View>
-                  < Navbar/>
-        <Text style={
-            {
-                left:120,
-                top:200
-            }
-        }>No Add to favourrite items</Text>
-        </View>
-    )
- }
- else{
+
     return (
         <View>
 
@@ -95,14 +46,12 @@ const {price,id,number}=route.params||null;
                ))
             } */}
             < Navbar/>
-         
+         {cart.map((item)=>{
+            return<OList key={item.id} {...item}/>
+         })}
             {/* <OList text={text} image={image} number={number} price={price} /> */}
         
-            <FlatList
-      data={data}
-      renderItem={renderItem}
-      keyExtractor={item => item.id}
-    />
+         
 
       
           
@@ -155,7 +104,7 @@ const {price,id,number}=route.params||null;
             
         </View>
     );
-}
+
 };
 
 export default Basket;

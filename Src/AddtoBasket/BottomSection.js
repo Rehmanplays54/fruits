@@ -1,14 +1,18 @@
 import { View, Text,TouchableOpacity, Alert } from 'react-native'
-import React, { useState } from 'react'
+import React, { createContext, useContext, useState } from 'react'
 
 import Icon from 'react-native-vector-icons/EvilIcons';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import { useNavigation } from '@react-navigation/native';
+
+import { MyContext, usecartcontext } from '../Context/FContext';
 import Navbar from '../HomeComponents/Navbar';
-const BottomSection = ({price,id,number}) => {
+
+
+
+const BottomSection = ({price,id,number,image,name}) => {
+  const {addtocart} = usecartcontext();
 //console.log( number, price, text, image );
-
-
     const [iconColor, setIconColor] = useState('#FFA451');
     const [bgColor, setBgColor] = useState('#FFF7F0');
    const navigation=useNavigation();
@@ -44,7 +48,7 @@ const BottomSection = ({price,id,number}) => {
      
      />
     </TouchableOpacity>
-    <TouchableOpacity >
+    <TouchableOpacity onPress={()=>Navbar(price,id,number,name,image)}>
     <Text
                 style={{ 
                     width: wp('60%'),
@@ -57,7 +61,7 @@ const BottomSection = ({price,id,number}) => {
                     textAlignVertical: 'center',
                     borderRadius: 10
                 }}
-                onPress={()=> navigation.navigate('Basket', {price,id,number})}
+                onPress={()=> navigation.navigate('Basket',{id,price,number,image},addtocart(price,id,number,name,image,))}
                 
                
             >

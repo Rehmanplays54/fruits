@@ -6,7 +6,7 @@ import BottomSection from './BottomSection';
 import OList from '../OrderList/OList';
 import Navbar from '../HomeComponents/Navbar';
 
-const Pricecount = ({text1,id}) => {
+const Pricecount = ({text1,id,image,name}) => {
   
 
     const [number,setnumber]=useState(1);
@@ -98,7 +98,7 @@ const Pricecount = ({text1,id}) => {
       
         {price}</Text>
 
-        <BottomSection price={price} id={id} number={number}/>
+        <BottomSection price={price} id={id} number={number} image={image} name={name}/>
     
     </View>
   )

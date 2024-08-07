@@ -40,7 +40,7 @@ const Details = ({ route }) => {
                 }}>
                   {item.name}
                 </Text>
-                <Pricecount text1={item.price} id={item.id}/>
+                <Pricecount text1={item.price} id={item.id} image={item.image} name={item.name}/>
                 <View style={{ top: -95 }}>
                 <Text style={{backgroundColor:'#000',height:hp('0.07%'),bottom:hp('4%')}}></Text>
                 <View style={{

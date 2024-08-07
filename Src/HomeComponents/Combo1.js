@@ -53,6 +53,7 @@ const ListCatagories = () => {
               name='heart'
               size={30}
               color={item.id === activeId ? '#fff' : '#FFA451'}
+          
             />
               </TouchableOpacity>
               <Image

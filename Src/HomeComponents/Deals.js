@@ -115,13 +115,7 @@ const Deals = () => {
   return (
     <View style={styles.container}>
       <ListCatagories />
-      {
-        CatagoriesData.map(item=>{
-       
-          <Image style={{width:'100%'}} source={item.c_btn}/>
-          
-        })
-      }
+
     </View>
   );
 };
