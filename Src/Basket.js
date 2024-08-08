@@ -69,8 +69,7 @@ const Basket = () => {
                         left: 2,
                     }}
                 />
-             
-             <Text>{total_price()}</Text> 
+          
                 </View>
 
       

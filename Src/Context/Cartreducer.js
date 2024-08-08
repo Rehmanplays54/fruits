@@ -8,13 +8,19 @@ const Cartreducer = (state, action) => {
             name: name,
             image: image,
         };
+    
+    //     let total_price = state.cart.reduce((initval, item) => {
+    //         let { price, number } = item;
+    
+    //         initval = initval + price * number;
+    //         return initval;
+    // })
 
 
         return {
             ...state,
-            cart: [...state.cart, cartProduct],
+            cart: [...state.cart, cartProduct, total_price],
         };
-    }
 
     if (action.type === "REMOVE_ITEM") {
 
@@ -30,20 +36,19 @@ const Cartreducer = (state, action) => {
         };
     }
 
-    if (action.type === "TOTAL_PRICE") {
-        let total_price = state.cart.reduce((initval, item) => {
-            let price = parseFloat(item.price); // Ensure price is a number
-            let { number } = item;
+    // if (action.type === "TOTAL_PRICE") {
+    //     let total_price = state.cart.reduce((initval, item) => {
+    //         let { price, number } = item;
     
-            initval = initval + price * number;
-            return initval;
-        }, 0);
+    //         initval = initval + price * number;
+    //         return initval;
+    //     }, 0);
     
-        return {
-            ...state,
-            total_price,
-        };
-    }
+    //     return {
+    //         ...state,
+    //         total_price,
+    //     };
+    // }
     
 
     // if (action.type === "TOTAL_PRICE") {
@@ -61,6 +66,6 @@ const Cartreducer = (state, action) => {
     // }
 
     return state;
-};
+}};
 
 export default Cartreducer;

@@ -21,13 +21,13 @@ const initialstate={
   number:"",
   name:"",
   image:"",
-  totalprice:0
+  totalprice:""
 }
 
 const [state,disptach]=useReducer(Cartreducer,initialstate)
-const total_price=(price)=>{
-  disptach({type:"TOTAL_PRICE",payload:price})
- }
+// const total_price=()=>{
+//   disptach({type:"TOTAL_PRICE"})
+//  }
 
 const addtocart=(price,id,number,name,image)=>{
 disptach({type:"ADD_TO_CART", payload:{price,id,number,name,image}})
@@ -81,7 +81,7 @@ const removeitem=(id)=>{
   ]);
 
   return (
-    <MyContext.Provider value={{ data, cart:state.cart,addtocart,removeitem,total_price}}>
+    <MyContext.Provider value={{ data, cart:state.cart,addtocart,removeitem}}>
       {children}
     </MyContext.Provider>
   );

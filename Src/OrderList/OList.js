@@ -3,20 +3,21 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-nati
 import { Image } from 'react-native-animatable';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { usecartcontext } from '../Context/FContext';
+import { useNavigation } from '@react-navigation/native';
 
-const OList = ({ price, id, number, name, image }) => {
+const OList = ({ price, id, number, name, image, }) => {
   const {removeitem} = usecartcontext();
-  
-  
+  const total_price=total_price+price;
+  const navigation=useNavigation();
 
 
   return (
-    <ScrollView
-      style={{
+  
+      <TouchableOpacity    style={{
         left: hp('4'),
         top: hp('-1'),
-      }}
-    >
+      }} onPress={()=> navigation.navigate('Basket')}>
+          <ScrollView>
       <Text
         style={{
           fontSize: hp('1.6'),
@@ -65,20 +66,22 @@ const OList = ({ price, id, number, name, image }) => {
       >
         {price}
       </Text>
-      <TouchableOpacity style={{ top: hp('-6'),}} onPress={() =>removeitem(id)}>
+      <TouchableOpacity style={{ width:wp('6'),height:hp('4'),  marginLeft: hp('37'), top: hp('-6'),}} onPress={() =>removeitem(id)}>
         <Image
           style={{
             width: wp('4'),
             height: hp('3'),
-            marginLeft: hp('37'),
+         
           
           
           }}
           source={require('../../assets/delete.png')}
         />
       </TouchableOpacity>
+      <Text>{total_price}</Text>
+      </ScrollView>
+      </TouchableOpacity>
 
-    </ScrollView>
   );
 };
 

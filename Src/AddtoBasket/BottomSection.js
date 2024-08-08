@@ -61,7 +61,7 @@ const BottomSection = ({price,id,number,image,name}) => {
                     textAlignVertical: 'center',
                     borderRadius: 10
                 }}
-                onPress={()=> navigation.navigate('Basket',{id,price,number,image},addtocart(price,id,number,name,image,))}
+                onPress={()=> navigation.navigate('Basket',addtocart(price,id,number,name,image,))}
                 
                
             >
