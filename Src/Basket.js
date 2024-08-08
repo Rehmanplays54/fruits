@@ -14,13 +14,14 @@ import OList from './OrderList/OList';
 const Basket = () => {
 
     
- const route=useRoute();
-const {price,id,number}=route.params||null;
+//  const route=useRoute();
+// const {price,id,number}=route.params||null;
 
 
   const {data}=useContext(MyContext);
- const {cart}=usecartcontext();
+ const {cart,total_price}=usecartcontext();
     const [isPopupVisible, setPopupVisible] = useState(false);
+
 
     const togglePopup = () => {
         setPopupVisible(!isPopupVisible);
@@ -28,7 +29,7 @@ const {price,id,number}=route.params||null;
 
     const navigation = useNavigation();
    
-    console.log(cart);
+    // console.log(cart);
     
 
 
@@ -51,11 +52,7 @@ const {price,id,number}=route.params||null;
          })}
             {/* <OList text={text} image={image} number={number} price={price} /> */}
         
-         
-
-      
-          
-            <View style={{top:hp('38'),left:30}}>
+            <View style={{top:hp('88'),left:30,position:'absolute'}}>
         <Text
                     style={{
                         fontSize: 19
@@ -72,17 +69,14 @@ const {price,id,number}=route.params||null;
                         left: 2,
                     }}
                 />
-                <Text
-                    style={{
-                        fontSize: 26,
-                        left: hp('3.3'),
-                        top:hp('-2.7')
-                    }}
-                >
-                  {price}
-                </Text>
+             
+             <Text>{total_price()}</Text> 
                 </View>
-                <TouchableOpacity style={{ left: hp('14'), top: hp('29%'),}} onPress={togglePopup}>
+
+      
+          
+ 
+                <TouchableOpacity style={{ left: hp('14'), top: hp('89%'),position:'absolute'}} onPress={togglePopup}>
                     <CustomPopup visible={isPopupVisible} onClose={togglePopup} />
                     <Text
                         style={{

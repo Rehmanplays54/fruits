@@ -1,5 +1,5 @@
 
-import React, { createContext, useContext,useReducer, useState } from 'react';
+import React, { createContext, useContext,useEffect,useReducer, useState } from 'react';
 import Cartreducer from './Cartreducer';
 import Icon from 'react-native-vector-icons/EvilIcons';
 
@@ -16,17 +16,21 @@ const DataProvider = ({ children }) => {
   
 const initialstate={
   cart:[],
-
   price:"",
-  number:"",
   id:"",
+  number:"",
   name:"",
   image:"",
+  totalprice:0
 }
 
 const [state,disptach]=useReducer(Cartreducer,initialstate)
-const addtocart=(price,number,id,name,image)=>{
-disptach({type:"ADD_TO_CART", payload:{price,number,id,name,image}})
+const total_price=(price)=>{
+  disptach({type:"TOTAL_PRICE",payload:price})
+ }
+
+const addtocart=(price,id,number,name,image)=>{
+disptach({type:"ADD_TO_CART", payload:{price,id,number,name,image}})
 }
 const removeitem=(id)=>{
   disptach({type:"REMOVE_ITEM",payload:id})
@@ -77,7 +81,7 @@ const removeitem=(id)=>{
   ]);
 
   return (
-    <MyContext.Provider value={{ data, cart:state.cart,addtocart,removeitem}}>
+    <MyContext.Provider value={{ data, cart:state.cart,addtocart,removeitem,total_price}}>
       {children}
     </MyContext.Provider>
   );
