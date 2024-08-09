@@ -1,14 +1,20 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import { Image } from 'react-native-animatable';
+import {useSelector} from  'react-redux'
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import { usecartcontext } from '../Context/FContext';
+import { MyContext, usecartcontext } from '../Context/FContext';
 import { useNavigation } from '@react-navigation/native';
 
 const OList = ({ price, id, number, name, image, }) => {
   const {removeitem} = usecartcontext();
-  const total_price=total_price+price;
+
   const navigation=useNavigation();
+
+
+
+
+  
 
 
   return (
@@ -78,7 +84,9 @@ const OList = ({ price, id, number, name, image, }) => {
           source={require('../../assets/delete.png')}
         />
       </TouchableOpacity>
-      <Text>{total_price}</Text>
+   
+        
+     
       </ScrollView>
       </TouchableOpacity>
 

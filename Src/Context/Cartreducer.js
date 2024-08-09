@@ -1,6 +1,30 @@
 const Cartreducer = (state, action) => {
+
+
+
     if (action.type === "ADD_TO_CART") {
-        let { price, number, id, name, image } = action.payload;
+        let { price, id,number, name, image } = action.payload;
+        const existingProduct = state.cart.find((item) => item.id === id);
+ console.log(existingProduct);
+ 
+        if (existingProduct) {
+            const updatedCart = state.cart.map((product) => {
+                if (product.id === id) {
+                    const newNumber = product.number + id;
+                    return {
+                        ...product,
+                        id: newNumber,
+                    };
+                }
+                return product;
+            });
+
+            return {
+                ...state,
+                cart: updatedCart,
+            };
+        } 
+        else {
         let cartProduct = {
             price: price,
             id: id,
@@ -8,20 +32,16 @@ const Cartreducer = (state, action) => {
             name: name,
             image: image,
         };
-    
-    //     let total_price = state.cart.reduce((initval, item) => {
-    //         let { price, number } = item;
-    
-    //         initval = initval + price * number;
-    //         return initval;
-    // })
-
-
         return {
             ...state,
-            cart: [...state.cart, cartProduct, total_price],
+            cart: [...state.cart, cartProduct],
         };
+    }
 
+}
+
+
+    // Remove item
     if (action.type === "REMOVE_ITEM") {
 
         console.log(action.payload);
@@ -29,43 +49,21 @@ const Cartreducer = (state, action) => {
         let updatedCart = state.cart.filter(
             (item) => item.id !== action.payload
         );
-
         return {
             ...state,
             cart: updatedCart,
         };
     }
 
-    // if (action.type === "TOTAL_PRICE") {
-    //     let total_price = state.cart.reduce((initval, item) => {
-    //         let { price, number } = item;
-    
-    //         initval = initval + price * number;
-    //         return initval;
-    //     }, 0);
-    
-    //     return {
-    //         ...state,
-    //         total_price,
-    //     };
-    // }
-    
-
-    // if (action.type === "TOTAL_PRICE") {
-    //     let total_price = state.cart.reduce((initval, item) => {
-    //         let { price, number } = item;
-
-    //         initval = initval + price * number;
-    //         return initval;
-    //     }, 0);
-
-    //     return {
-    //         ...state,
-    //         total_price,
-    //     };
-    // }
+    if (action.type === "TOTALCARTPRICE") {
+        const totalPrice = state.cart.reduce((sum, item) => sum + item.price, 0);
+        return {
+          ...state,
+          totalPrice,
+        };
+    }
 
     return state;
-}};
+};
 
 export default Cartreducer;

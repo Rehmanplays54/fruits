@@ -1,15 +1,18 @@
 import { View, Text, StyleSheet,TouchableOpacity } from 'react-native'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+
 
 const NewNavigation = () => {
+
     const [activeTab, setActiveTab] = useState('Hottest');
   return (
     <View style={styles.container}>
 <TouchableOpacity
  onPress={
-    () => setActiveTab('Hottest')
-    }
+    () => setActiveTab('Hottest')}
+    
      style={styles.tab}>
+   
     <Text
      style={[
         styles.tabText, 
@@ -17,7 +20,9 @@ const NewNavigation = () => {
         ]}
         >Hottest
         </Text>
-    {activeTab === 'Hottest' && <View style={styles.activeTabLine} />}
+    {activeTab === 'Hottest' && 
+    
+    <View style={styles.activeTabLine} />}
 </TouchableOpacity>
 
 <TouchableOpacity 

@@ -19,7 +19,7 @@ const Basket = () => {
 
 
   const {data}=useContext(MyContext);
- const {cart,total_price}=usecartcontext();
+ const {cart}=usecartcontext(MyContext);
     const [isPopupVisible, setPopupVisible] = useState(false);
 
 
@@ -32,7 +32,11 @@ const Basket = () => {
     // console.log(cart);
     
 
-
+    const total_price=  cart.reduce((item,index)=>{
+        let {price,number}= index;
+        item=item+price*number ;
+        return item;
+      },0)
 
     return (
         <View>
@@ -48,7 +52,12 @@ const Basket = () => {
             } */}
             < Navbar/>
          {cart.map((item)=>{
-            return<OList key={item.id} {...item}/>
+
+            return (<View>
+                
+                <OList key={item.id} {...item} />
+                    {total_price}
+            </View>)
          })}
             {/* <OList text={text} image={image} number={number} price={price} /> */}
         
@@ -69,7 +78,7 @@ const Basket = () => {
                         left: 2,
                     }}
                 />
-          
+          <Text>{total_price}</Text>
                 </View>
 
       

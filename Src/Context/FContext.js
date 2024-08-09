@@ -21,7 +21,7 @@ const initialstate={
   number:"",
   name:"",
   image:"",
-  totalprice:""
+  totalprice:0
 }
 
 const [state,disptach]=useReducer(Cartreducer,initialstate)
@@ -35,10 +35,13 @@ disptach({type:"ADD_TO_CART", payload:{price,id,number,name,image}})
 const removeitem=(id)=>{
   disptach({type:"REMOVE_ITEM",payload:id})
 }
-
+// useEffect(() => {
+//   disptach({type:"TOTALCARTPRICE"})
+// }, [state.cart]);
+ 
   const [data, setData] = useState([
-    {
-        id: 1,
+  {
+            id: 1,
         name: 'Honey lime combo',
         price: '4000',
         add: require('../../assets/add.png'),
@@ -78,10 +81,11 @@ const removeitem=(id)=>{
         heart: Iccon
 
     },
-  ]);
+
+  ],   );
 
   return (
-    <MyContext.Provider value={{ data, cart:state.cart,addtocart,removeitem}}>
+    <MyContext.Provider value={{ data, cart:state.cart,addtocart,removeitem,}}>
       {children}
     </MyContext.Provider>
   );
