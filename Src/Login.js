@@ -43,6 +43,7 @@ navigation.navigate('Home')
             </Text>
             <TextInput 
              placeholder='Tony' 
+             keyboardType='ascii-capable'
              value={inputValue}
              onChangeText={text => {
                 setInputValue(text);

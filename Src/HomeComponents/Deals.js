@@ -5,6 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import CatagoriesData from '../../Components/Catagories';
 import Icon from 'react-native-vector-icons/EvilIcons';
 import Basket from '../Basket';
+import { usecartcontext } from '../Context/FContext';
 
 
 
@@ -23,7 +24,8 @@ const ListCatagories = () => {
     // setBgColor(bgColor === 'transparent' ? '#FFA451' : 'transparent');
   };
 
-
+const {addtocart}=usecartcontext();
+const number=1;
   return (
     <ScrollView
       showsHorizontalScrollIndicator={true}
@@ -41,7 +43,7 @@ const ListCatagories = () => {
           ]}>
             <TouchableOpacity onPress={() => navigation.navigate('Details', { id: item.id })}>
               <TouchableOpacity
-                onPress={() => handlePress(item.id)}
+                onPress={() => [handlePress(item.id),addtocart(item.price,item.id,number,item.name,item.image)]}
                 style={{
                   backgroundColor: item.id === activeId ? '#FFA451' : 'transparent',
                   color: '#fff',

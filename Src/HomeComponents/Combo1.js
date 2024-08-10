@@ -39,7 +39,7 @@ const ListCatagories = () => {
           ]}>
             <TouchableOpacity onPress={() => navigation.navigate('Details', { id: item.id })}>
               <TouchableOpacity
-                onPress={() => handlePress(item.id)}
+                onPress={() =>  [handlePress(item.id),addtocart(item.price,item.id,number,item.name,item.image)]}
                 style={{
                   backgroundColor: item.id === activeId ? '#FFA451' : 'transparent',
                   color: '#fff',
