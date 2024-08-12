@@ -5,7 +5,7 @@ const Cartreducer = (state, action) => {
     if (action.type === "ADD_TO_CART") {
         let { price, id,number, name, image } = action.payload;
         const existingProduct = state.cart.find((item) => item.id === id);
- console.log(existingProduct);
+ 
  
         if (existingProduct) {
             const updatedCart = state.cart.map((product) => {
@@ -44,7 +44,7 @@ const Cartreducer = (state, action) => {
     // Remove item
     if (action.type === "REMOVE_ITEM") {
 
-        console.log(action.payload);
+       
         
         let updatedCart = state.cart.filter(
             (item) => item.id !== action.payload

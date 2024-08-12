@@ -14,8 +14,7 @@ import OList from './OrderList/OList';
 const Basket = () => {
 
     
-//  const route=useRoute();
-// const {price,id,number}=route.params||null;
+
 
 
   const {data}=useContext(MyContext);
@@ -29,14 +28,12 @@ const Basket = () => {
 
     const navigation = useNavigation();
    
-    // console.log(cart);
+
     
 
-    const total_price=  cart.reduce((item,index)=>{
-        let {price,number}= index;
-        item=item+price*number ;
-        return item;
-      },0)
+    const total_price = cart.reduce((total, item) => {
+        return total + item.price * item.number;
+    }, 0);
 
     return (
         <View>
@@ -56,15 +53,15 @@ const Basket = () => {
             return (<View>
                 
                 <OList key={item.id} {...item} />
-                    {total_price}
+                   
             </View>)
          })}
             {/* <OList text={text} image={image} number={number} price={price} /> */}
         
             <View style={{top:hp('88'),left:30,position:'absolute'}}>
         <Text
-                    style={{
-                        fontSize: 19
+                    style={{     
+          fontSize: 19
                     }}
                 >
                     Total
@@ -78,7 +75,9 @@ const Basket = () => {
                         left: 2,
                     }}
                 />
-          <Text>{total_price}</Text>
+       <Text style={{
+        left:hp('4'),fontSize:hp('3.5'),top:hp('-3')
+       }}>{total_price}</Text>
                 </View>
 
       
