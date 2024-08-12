@@ -11,14 +11,9 @@ const OList = ({ price, id, number, name, image, }) => {
 
   const navigation=useNavigation();
 
-
-
-
-  
-
+ 
 
   return (
-  
       <TouchableOpacity    style={{
         left: hp('4'),
         top: hp('-1'),
@@ -88,6 +83,8 @@ const OList = ({ price, id, number, name, image, }) => {
         
      
       </ScrollView>
+
+
       </TouchableOpacity>
 
   );

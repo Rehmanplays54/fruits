@@ -10,15 +10,7 @@ const Cardpopup = ({ visible, onClose }) => {
   const [isPopupVisible, setPopupVisible] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const [error, setError] = useState(false);
-const handlepress = () => {
-  if (inputValue === '') {
-      setError(true);
-  } else {
-    setError(false);
-    
-    console.log('Input Value:', inputValue);
-  }
-};
+
   const togglePopup = () => {
     setPopupVisible(!isPopupVisible);
   };
@@ -106,7 +98,7 @@ const handlepress = () => {
              top:hp('-4.7')
             }} 
           placeholder='123' />
-          <TouchableOpacity  onPress={()=>navigation.navigate('DevliveryPopup2')} style={{
+          <TouchableOpacity  onPress={()=>navigation.navigate('PayDone')} style={{
            width:wp('100%'),
            height:('40%'),
             backgroundColor:'#FFA451',
@@ -127,8 +119,7 @@ const handlepress = () => {
         
             fontSize: 24,
              textAlign: 'center', paddingTop: 9, color: '#FFA451'
-         }} onPress={togglePopup}
-     >
+         }}    >
          Complete Order
      </Text>
     

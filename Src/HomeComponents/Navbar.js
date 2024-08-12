@@ -28,19 +28,17 @@ const Navbar = ({price,number,id,name,image}) => {
         source={require('../../assets/bars.png')}
       />
       <TouchableOpacity
+      style={{left: hp('33%'),
+        top: hp('-1.5%')}}
         onPress={() => navigation.navigate('Basket',{price,id,number,name,image})}
       >
         <Image
-          style={{
-            left: hp('33%'),
-            top: hp('-1.5%')
-          }}
           source={require('../../assets/basket.png')}
         />
         <Text
           style={{
-            top: hp('-11.7%'),
-            left: hp('38%'),
+            top: hp('-10%'),
+            left: hp('5%'),
             fontSize: hp('1.5%')
           }}
         >

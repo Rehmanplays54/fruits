@@ -3,17 +3,20 @@ const Cartreducer = (state, action) => {
 
 
     if (action.type === "ADD_TO_CART") {
-        let { price, id,number, name, image } = action.payload;
-        const existingProduct = state.cart.find((item) => item.id === id);
- 
- 
+        let { price,id,number, name, image } = action.payload;
+        const existingProduct = state.cart.find((item) => item.id == id);
+         console.log('help me');
+        
         if (existingProduct) {
+            
             const updatedCart = state.cart.map((product) => {
                 if (product.id === id) {
-                    const newNumber = product.number + id;
+                    const newNumber = product.number + number;
+                    const newPrice= price + price;
                     return {
                         ...product,
-                        id: newNumber,
+                        number: newNumber,
+                     price:newPrice,
                     };
                 }
                 return product;
@@ -23,7 +26,7 @@ const Cartreducer = (state, action) => {
                 ...state,
                 cart: updatedCart,
             };
-        } 
+        }
         else {
         let cartProduct = {
             price: price,
@@ -52,14 +55,6 @@ const Cartreducer = (state, action) => {
         return {
             ...state,
             cart: updatedCart,
-        };
-    }
-
-    if (action.type === "TOTALCARTPRICE") {
-        const totalPrice = state.cart.reduce((sum, item) => sum + item.price, 0);
-        return {
-          ...state,
-          totalPrice,
         };
     }
 

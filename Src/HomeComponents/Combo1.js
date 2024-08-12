@@ -4,27 +4,43 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 import { useNavigation } from '@react-navigation/native';
 import CatagoriesData from '../../Components/Catagories';
 import Icon from 'react-native-vector-icons/EvilIcons';
+import { MyContext, usecartcontext } from '../Context/FContext';
+import OList from '../OrderList/OList';
 
 
 
 
-const ListCatagories = () => {
+
+const Iccon = <Icon
+name='heart'
+size={30}
+color='#ffa451'
+/>
+
+
+
+const Combo1 = () => {
+
   const navigation = useNavigation();
   const [activeId, setActiveId] = useState(-1);
-
+  const {removeitem}=usecartcontext(MyContext)
+const {addtocart}=usecartcontext(MyContext);
   const handlePress = (id) => {
-    setActiveId((pid) => pid === id ? -1 : id)
   
-    //setIconColor(iconColor === '#FFA451' ? '#fff' : '#FFA451');
-    // setBgColor(bgColor === 'transparent' ? '#FFA451' : 'transparent');
-  };
+    setActiveId((pid) => {
+      if (pid === id) {
+        removeitem(id); 
+        return -1;
+      } else {
+        return id;
+      }
+    });
 
-  const Iccon = <Icon
-    name='heart'
-    size={30}
-    color='#ffa451'
-  />
+  };
+  const number=1;
+
   return (
+    <View style={styles.container}>
     <ScrollView
       showsHorizontalScrollIndicator={true}
       horizontal
@@ -103,15 +119,6 @@ const ListCatagories = () => {
       }
 
     </ScrollView>
-  );
-};
-
-const Combo1 = () => {
-  const navigation = useNavigation();
-
-  return (
-    <View style={styles.container}>
-      <ListCatagories />
     </View>
   );
 };

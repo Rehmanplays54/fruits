@@ -10,14 +10,11 @@ import CustomPopup from './DeliveryPopup';
 import { DataProvider, MyContext, usecartcontext} from './Context/FContext';
 import Navbar from './OrderList/Navbar';
 import OList from './OrderList/OList';
+import DeliveryPopup from './DeliveryPopup';
 
 const Basket = () => {
 
-    
 
-
-
-  const {data}=useContext(MyContext);
  const {cart}=usecartcontext(MyContext);
     const [isPopupVisible, setPopupVisible] = useState(false);
 
@@ -26,27 +23,19 @@ const Basket = () => {
         setPopupVisible(!isPopupVisible);
     };
 
-    const navigation = useNavigation();
+ 
    
 
     
 
     const total_price = cart.reduce((total, item) => {
-        return total + item.price * item.number;
+        return total + item.price * (item.number/item.number) ;
     }, 0);
 
     return (
         <View>
 
-            {/* {
-                Catagories.map(item=>(
-                    item.id===id ?(
-                        <View key={item.id} style={item.id===id}>
-                                <Image source={item.image}/>
-                        </View>
-                    ):null
-               ))
-            } */}
+         
             < Navbar/>
          {cart.map((item)=>{
 
@@ -84,7 +73,7 @@ const Basket = () => {
           
  
                 <TouchableOpacity style={{ left: hp('14'), top: hp('89%'),position:'absolute'}} onPress={togglePopup}>
-                    <CustomPopup visible={isPopupVisible} onClose={togglePopup} />
+                    <DeliveryPopup visible={isPopupVisible} onClose={togglePopup} />
                     <Text
                         style={{
                             fontFamily: 'HvDTrial_Brandon_Grotesque_black-BF64a625c944b08',
