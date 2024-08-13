@@ -26,7 +26,7 @@ import Basket from './Src/Basket';
 import PayDone from './Src/PayDone';
 import TrackOrder from './Src/TrackOrder';
 import { DataProvider } from './Src/Context/FContext';
-import { CartProvider } from './Src/Context/Cartcontext';
+
 
 
 function App() {
@@ -39,9 +39,9 @@ function App() {
       <NavigationContainer>
 
         <Stack.Navigator screenOptions={{ headerShown: false }}>
-{/* <Stack.Screen name='SplashScreen' component={SplashScreen} />
-<Stack.Screen name='Start' component={Start} />
-<Stack.Screen name='Login' component={Login} /> */}
+          <Stack.Screen name='SplashScreen' component={SplashScreen} />
+          <Stack.Screen name='Start' component={Start} />
+          <Stack.Screen name='Login' component={Login} />
           <Stack.Screen name='Home' component={Home} />
           <Stack.Screen name='Details' component={Details} />
           <Stack.Screen name='Basket' component={Basket} />
